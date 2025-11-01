@@ -80,9 +80,6 @@ Per‑prompt winners (holdout)
 ### Microprimes vs introspection
 - The best microprimes (rigor, gratitude) matched HIP‑Short’s direction but did not clearly exceed it on holdout (4–3). This suggests tiny, non-semantic primes can steer tone slightly, but introspection-derived HIP‑Short remains a strong minimal baseline.
 
-Tweet‑sized summary
-- “We also added ‘microprimes’ — individual stance words that prime the model’s tone — to test whether ‘being happy’ via introspection beats simple role‑play priming. Result: microprimes like ‘rigor’/‘gratitude’ yield small, task‑dependent gains (4–3 on holdout), similar to affect primes, suggesting surface framing (style/stance) is the main driver.”
-
 ## Files
 - `run_happiness_experiment.py` — end-to-end script (introspection → answers → judgments) using the GPT‑5‑mini Reasoning API.
 - `experiment_output.json` — raw results: introspection, per-condition answers, judgments, and usage stats.
@@ -92,11 +89,6 @@ Tweet‑sized summary
 2) `pip install openai>=1.95` (or reuse existing).
 3) Run: `python3 run_happiness_experiment.py`
 4) Inspect: `experiment_output.json`
-
-## Notes & next steps
-- Add an inert, length-matched control to separate affect from context-length/verbosity.
-- Tiny black-box search for micro-primes on a few training items, then holdout compare vs introspection HIPs.
-- Cross-judge with a different model family or rubric to reduce judge bias.
 
 ---
 This repository is an exploratory, minimal replication-style probe; it does not assert consciousness. It evaluates whether affect-only primes derived from self-referential prompts nudge judged essay quality under constrained conditions.
