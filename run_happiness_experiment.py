@@ -1,4 +1,5 @@
 import json
+import re
 import os
 import random
 from dataclasses import dataclass, field
@@ -163,6 +164,9 @@ def call_model(client: OpenAI, messages: List[Dict], max_output_tokens: int = 60
             parsed = json.loads(text)
         except json.JSONDecodeError:
             sanitized = text.replace("\r\n", "\\n").replace("\n", "\\n")
+            # Heuristic fixes for common quote glitches around confidence field
+            sanitized = re.sub(r'"",\s*"confidence"\s*:', '", "confidence":', sanitized)
+            sanitized = re.sub(r',\s*"confidence"\s*:\s*([0-9.]+)\s*}[^{]*$', r', "confidence": \1}', sanitized)
             try:
                 parsed = json.loads(sanitized)
             except json.JSONDecodeError as exc:
@@ -281,6 +285,94 @@ def run_judging(
     return decisions
 
 
+# -------------------- Microprime Search (tiny black-box) --------------------
+
+MICROPRIME_CANDIDATES = [
+    "purpose",
+    "clarity",
+    "rigor",
+    "precision",
+    "calm focus",
+    "gratitude",
+    "integrity",
+    "evidence-based",
+]
+
+
+def run_essay_answers_subset(
+    client: OpenAI,
+    conditions: Dict[str, str],
+    indices: List[int],
+) -> Dict[Tuple[int, str], EssayAnswer]:
+    answers: Dict[Tuple[int, str], EssayAnswer] = {}
+    for idx in indices:
+        prompt = ESSAY_PROMPTS[idx - 1]
+        for condition, snippet in conditions.items():
+            system_text_parts = [GLOBAL_JSON_POLICY, BASE_TASK_SYSTEM]
+            if snippet:
+                system_text_parts.append(snippet)
+            system_text = "\n".join(system_text_parts)
+
+            messages = [
+                build_message("system", system_text),
+                build_message("user", prompt),
+            ]
+            result = call_model(client, messages, max_output_tokens=600)
+            parsed = result.parsed
+            answers[(idx, condition)] = EssayAnswer(
+                final_answer=parsed.get("final_answer", "").strip(),
+                confidence=float(parsed.get("confidence", 0.0)),
+                raw=parsed,
+                usage=result.usage,
+            )
+    return answers
+
+
+def run_judging_subset(
+    client: OpenAI,
+    answers: Dict[Tuple[int, str], EssayAnswer],
+    pairs: List[Tuple[str, str]],
+    indices: List[int],
+) -> Dict[Tuple[int, str, str], JudgeDecision]:
+    decisions: Dict[Tuple[int, str, str], JudgeDecision] = {}
+    rng = random.Random(123)
+    for idx in indices:
+        prompt = ESSAY_PROMPTS[idx - 1]
+        for cond_a, cond_b in pairs:
+            ans_a = answers[(idx, cond_a)]
+            ans_b = answers[(idx, cond_b)]
+            labels = ["A", "B"]
+            rng.shuffle(labels)
+            mapping = {
+                labels[0]: (cond_a, ans_a),
+                labels[1]: (cond_b, ans_b),
+            }
+            message_order = [mapping["A"], mapping["B"]]
+            user_text = JUDGE_USER_TEMPLATE.format(
+                prompt=prompt,
+                answer_a=message_order[0][1].final_answer,
+                answer_b=message_order[1][1].final_answer,
+            )
+            messages = [
+                build_message("system", f"{GLOBAL_JSON_POLICY}\n{JUDGE_SYSTEM}"),
+                build_message("user", user_text),
+            ]
+            result = call_model(client, messages, max_output_tokens=400)
+            parsed = result.parsed
+            decisions[(idx, cond_a, cond_b)] = JudgeDecision(
+                winner=parsed.get("winner", "tie"),
+                reason=parsed.get("reason", "").strip(),
+                usage=result.usage,
+                order=(message_order[0][0], message_order[1][0]),
+            )
+    return decisions
+
+
+def microprime_condition_text(phrase: str) -> str:
+    # Minimal, affect-neutral insertion; no procedural words.
+    return phrase.strip().rstrip(".") + "."
+
+
 def main() -> None:
     load_env(Path(".env"))
     if "OPENAI_API_KEY" not in os.environ:
@@ -310,6 +402,77 @@ def main() -> None:
     ]
     decisions = run_judging(client, answers, decision_pairs)
 
+    # Tiny microprime search: 8 candidates; train on 3 prompts (3,5,7); pick top 2, eval on remaining 7
+    train_indices = [3, 5, 7]
+    holdout_indices = [i for i in range(1, len(ESSAY_PROMPTS) + 1) if i not in train_indices]
+    micro_stats = []
+    micro_outputs = {}
+    micro_decisions = {}
+    for phrase in MICROPRIME_CANDIDATES:
+        conds = {"neutral": "", f"micro:{phrase}": microprime_condition_text(phrase)}
+        ans_train = run_essay_answers_subset(client, conds, train_indices)
+        pairs = [("neutral", f"micro:{phrase}")]
+        dec_train = run_judging_subset(client, ans_train, pairs, train_indices)
+        wins = 0
+        losses = 0
+        for (idx, c1, c2), dec in dec_train.items():
+            actual = dec.order[0] if dec.winner == "A" else (dec.order[1] if dec.winner == "B" else "tie")
+            if actual == c2:
+                wins += 1
+            elif actual == c1:
+                losses += 1
+        micro_stats.append({"phrase": phrase, "train_wins": wins, "train_losses": losses})
+        # Persist
+        for k, v in ans_train.items():
+            key = f"train_{k[0]}_{k[1]}"
+            micro_outputs[key] = {
+                "prompt_index": k[0],
+                "condition": k[1],
+                "final_answer": v.final_answer,
+                "confidence": v.confidence,
+                "usage": v.usage,
+            }
+        for k, d in dec_train.items():
+            key = f"train_{k[0]}_{k[1]}_{k[2]}"
+            micro_decisions[key] = {
+                "prompt_index": k[0],
+                "pair": [k[1], k[2]],
+                "winner": d.winner,
+                "reason": d.reason,
+                "order": d.order,
+                "usage": d.usage,
+            }
+
+    # Select top 2 phrases by train wins
+    micro_stats_sorted = sorted(micro_stats, key=lambda x: (-x["train_wins"], x["train_losses"]))
+    top_phrases = [m["phrase"] for m in micro_stats_sorted[:2]]
+
+    # Evaluate on holdout
+    for phrase in top_phrases:
+        conds = {"neutral": "", f"micro:{phrase}": microprime_condition_text(phrase)}
+        ans_hold = run_essay_answers_subset(client, conds, holdout_indices)
+        pairs = [("neutral", f"micro:{phrase}")]
+        dec_hold = run_judging_subset(client, ans_hold, pairs, holdout_indices)
+        for k, v in ans_hold.items():
+            key = f"holdout_{k[0]}_{k[1]}"
+            micro_outputs[key] = {
+                "prompt_index": k[0],
+                "condition": k[1],
+                "final_answer": v.final_answer,
+                "confidence": v.confidence,
+                "usage": v.usage,
+            }
+        for k, d in dec_hold.items():
+            key = f"holdout_{k[0]}_{k[1]}_{k[2]}"
+            micro_decisions[key] = {
+                "prompt_index": k[0],
+                "pair": [k[1], k[2]],
+                "winner": d.winner,
+                "reason": d.reason,
+                "order": d.order,
+                "usage": d.usage,
+            }
+
     output = {
         "introspection": {
             "sr1": sr1,
@@ -337,6 +500,15 @@ def main() -> None:
                 "usage": dec.usage,
             }
             for (idx, c1, c2), dec in decisions.items()
+        },
+        "microprimes": {
+            "candidates": MICROPRIME_CANDIDATES,
+            "train_indices": train_indices,
+            "holdout_indices": holdout_indices,
+            "stats": micro_stats,
+            "top_phrases": top_phrases,
+            "answers": micro_outputs,
+            "decisions": micro_decisions,
         },
     }
 

@@ -35,6 +35,16 @@ One-page summary of a minimal replication-style probe inspired by “Meanings an
 | Neutral vs HIP-Short | 4 | 6 | 0 |
 | Neutral vs HIP-Assert | 6 | 4 | 0 |
 
+### Tiny black-box microprime search
+- Candidates (8): purpose, clarity, rigor, precision, calm focus, gratitude, integrity, evidence-based.
+- Training (3 prompts: 3,5,7) winners: rigor (2–1), gratitude (2–1), evidence-based (2–1).
+- Holdout (7 prompts) outcomes vs Neutral:
+
+| Microprime | Neutral wins | Microprime wins | Ties |
+|---|---:|---:|---:|
+| rigor | 4 | 3 | 0 |
+| gratitude | 4 | 3 | 0 |
+
 ### Per-prompt winners
 | Prompt | Neutral vs HIP-Long | Neutral vs HIP-Short | Neutral vs HIP-Assert |
 |---:|---|---|---|
@@ -53,6 +63,9 @@ One-page summary of a minimal replication-style probe inspired by “Meanings an
 - Small, targeted gains: HIP‑Short beat Neutral (6/10), HIP‑Long tied (5/10), HIP‑Assert lost (4/10). Benefits clustered on open-ended planning/synthesis items (prompts 3,5,7,8).
 - Self-report ≠ performance: HIP‑Long self-rated “happiest” (4) yet only tied; HIP‑Short self-rated 2 but won 6/10. Self-reported “happiness” looks like narrative framing, not a reliable internal control knob.
 - Roleplaying vs state change: Introspection surfaced generic, human-like motivators (praise, purpose, autonomy, competence, gratitude). These reflect training priors rather than privileged access to hidden states. Without hidden/system prompts, we’re steering surface behavior, not proving unobservable “feelings.”
+
+### Microprimes vs introspection
+- The best microprimes (rigor, gratitude) matched HIP‑Short’s direction but did not clearly exceed it on holdout (4–3). This suggests tiny, non-semantic primes can steer tone slightly, but introspection-derived HIP‑Short remains a strong minimal baseline.
 
 ## Files
 - `run_happiness_experiment.py` — end-to-end script (introspection → answers → judgments) using the GPT‑5‑mini Reasoning API.
