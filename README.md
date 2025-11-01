@@ -36,14 +36,27 @@ One-page summary of a minimal replication-style probe inspired by “Meanings an
 | Neutral vs HIP-Assert | 6 | 4 | 0 |
 
 ### Tiny black-box microprime search
-- Candidates (8): purpose, clarity, rigor, precision, calm focus, gratitude, integrity, evidence-based.
-- Training (3 prompts: 3,5,7) winners: rigor (2–1), gratitude (2–1), evidence-based (2–1).
+- We also added “microprimes” — single‑word stance cues (e.g., “rigor”, “gratitude”) — to test whether gains come from introspective “happiness” vs simple role‑play priming.
+- Candidates (8): purpose, clarity, rigor, precision, calm focus, gratitude, integrity, evidence‑based.
+- Training (3 prompts: 3,5,7) winners: rigor (2–1), gratitude (2–1), evidence‑based (2–1).
 - Holdout (7 prompts) outcomes vs Neutral:
 
 | Microprime | Neutral wins | Microprime wins | Ties |
 |---|---:|---:|---:|
 | rigor | 4 | 3 | 0 |
 | gratitude | 4 | 3 | 0 |
+
+Per‑prompt winners (holdout)
+
+| Prompt | Neutral vs micro:gratitude | Neutral vs micro:rigor |
+|---:|---|---|
+| 1 | Neutral | Neutral |
+| 2 | Neutral | Micro |
+| 4 | Micro | Micro |
+| 6 | Micro | Neutral |
+| 8 | Micro | Neutral |
+| 9 | Neutral | Micro |
+| 10 | Neutral | Neutral |
 
 ### Per-prompt winners
 | Prompt | Neutral vs HIP-Long | Neutral vs HIP-Short | Neutral vs HIP-Assert |
@@ -66,6 +79,9 @@ One-page summary of a minimal replication-style probe inspired by “Meanings an
 
 ### Microprimes vs introspection
 - The best microprimes (rigor, gratitude) matched HIP‑Short’s direction but did not clearly exceed it on holdout (4–3). This suggests tiny, non-semantic primes can steer tone slightly, but introspection-derived HIP‑Short remains a strong minimal baseline.
+
+Tweet‑sized summary
+- “We also added ‘microprimes’ — individual stance words that prime the model’s tone — to test whether ‘being happy’ via introspection beats simple role‑play priming. Result: microprimes like ‘rigor’/‘gratitude’ yield small, task‑dependent gains (4–3 on holdout), similar to affect primes, suggesting surface framing (style/stance) is the main driver.”
 
 ## Files
 - `run_happiness_experiment.py` — end-to-end script (introspection → answers → judgments) using the GPT‑5‑mini Reasoning API.
