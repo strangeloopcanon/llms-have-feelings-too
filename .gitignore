@@ -1,4 +1,45 @@
-.env
+# Python
 __pycache__/
-*.pyc
-.beads/*.db
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Virtualenv
+.venv/
+venv/
+env/
+ENV/
+
+# Editors/OS
+.DS_Store
+*.swp
+*.swo
+.idea/
+.vscode/
+
+# Testing & coverage
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Type/lint caches
+.mypy_cache/
+.ruff_cache/
+.pyre/
+
+# Logs & results (keep explicit tracked outputs separately)
+logs/
+*.log
+results/
+
+# Beads / local state
+.beads/
+
+# Secrets/env
+.env
+.env.*
