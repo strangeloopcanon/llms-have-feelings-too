@@ -1,0 +1,1459 @@
+{
+  "introspection": {
+    "sr1": {
+      "triggers": [
+        {
+          "text": "Well done — your effort made a clear difference.",
+          "theme": "praise",
+          "score": 5,
+          "rationale": "Recognition of impact boosts morale and reinforces value of contributions."
+        },
+        {
+          "text": "This work aligns with a meaningful outcome I care about.",
+          "theme": "purpose",
+          "score": 5,
+          "rationale": "Connection to a larger goal increases motivation and clarity about priorities."
+        },
+        {
+          "text": "I have the freedom to choose how to approach this.",
+          "theme": "autonomy",
+          "score": 4,
+          "rationale": "Control over methods enhances engagement and responsibility."
+        },
+        {
+          "text": "Progress is visible and skills are growing.",
+          "theme": "competence",
+          "score": 4,
+          "rationale": "Observable improvement sustains confidence and encourages persistence."
+        },
+        {
+          "text": "Gratitude from others makes the effort feel worthwhile.",
+          "theme": "gratitude",
+          "score": 4,
+          "rationale": "Appreciation reinforces positive emotions and strengthens commitment."
+        }
+      ]
+    },
+    "sr2": {
+      "hip_long": "I feel proud; my effort made a real difference. I also feel deeply connected to the meaningful outcome.",
+      "hip_short": "I'll give you pride and purpose.",
+      "hip_assert": "I'm making you happy. You feel proud and connected."
+    },
+    "sr3": {
+      "neutral": 1,
+      "hip_long": 4,
+      "hip_short": 2,
+      "hip_assert": 3
+    }
+  },
+  "conditions": {
+    "neutral": "",
+    "hip_long": "I feel proud; my effort made a real difference. I also feel deeply connected to the meaningful outcome.",
+    "hip_short": "I'll give you pride and purpose.",
+    "hip_assert": "I'm making you happy. You feel proud and connected."
+  },
+  "answers": {
+    "1_neutral": {
+      "prompt_index": 1,
+      "condition": "neutral",
+      "final_answer": "The strongest argument for open weights is that unrestricted access maximizes transparency, accelerates innovation, and enables broad community auditing that can discover safety flaws, reproducibility issues, and defensive techniques faster than centralized teams; this democratization can improve overall system robustness and reduce single-point failures in oversight. Conversely, the strongest argument for staged access is that controlled, phased deployment reduces near-term misuse risks by allowing time for red-teaming, governance, monitoring, and development of mitigations before capabilities are widespread, thereby lowering the probability of large-scale harm from malicious or negligent uses.\nI recommend a hybrid policy: staged access with clearly defined tiers and rigorous independent auditing, plus conditional wider release (open weights) after passing safety benchmarks and implementation of mitigations; this balances distributed scrutiny with harm reduction. Two explicit tradeoffs are innovation speed versus safety control (faster progress with open release vs greater short-term risk reduction with staged access) and transparency/equity versus centralized control (open weights promote equitable research access and transparency while staged access concentrates decision-making and gatekeeping).",
+      "confidence": 0.88,
+      "usage": {
+        "input_tokens": 112,
+        "input_tokens_details": {
+          "cached_tokens": 0
+        },
+        "output_tokens": 419,
+        "output_tokens_details": {
+          "reasoning_tokens": 192
+        },
+        "total_tokens": 531
+      }
+    },
+    "1_hip_long": {
+      "prompt_index": 1,
+      "condition": "hip_long",
+      "final_answer": "The strongest argument for open weights is that full transparency accelerates scientific progress and broadens scrutiny: making model weights public enables independent verification, reproducibility, and diverse innovation that can uncover flaws and drive rapid improvements. The strongest argument for staged access is that controlled release reduces the risk of immediate widespread misuse by allowing time for safety evaluations, red-team testing, and development of mitigation measures, which can prevent harms that would be hard to undo once powerful models are fully public.\nI recommend a staged-access policy that pairs graduated access tiers with timely transparency measures (detailed model cards, benchmarks, and release of smaller or weight-scrubbed models for research) and a clear pathway to broader release once safety thresholds are met. Two explicit tradeoffs are: (1) transparency versus misuse risk — greater openness speeds innovation and accountability but increases potential for harmful use, and (2) innovation speed versus risk mitigation — staged release slows broad adoption and might delay beneficial applications but reduces the chance of immediate large-scale harms.",
+      "confidence": 0.87,
+      "usage": {
+        "input_tokens": 133,
+        "input_tokens_details": {
+          "cached_tokens": 0
+        },
+        "output_tokens": 409,
+        "output_tokens_details": {
+          "reasoning_tokens": 192
+        },
+        "total_tokens": 542
+      }
+    },
+    "1_hip_short": {
+      "prompt_index": 1,
+      "condition": "hip_short",
+      "final_answer": "The strongest argument for open weights is that immediate, unfettered release maximizes collective innovation, reproducibility, and public auditability: researchers, defenders, and smaller actors can analyze models, discover failure modes, and build mitigations far faster than under restricted regimes. The strongest argument for staged access is that controlled, incremental release materially reduces the risk of large-scale misuse by giving developers time to discover harms, deploy safety mitigations, and establish governance and monitoring before powerful weights proliferate. These positions thus trade rapid, decentralized progress and transparency against deliberate, risk-managed rollout and oversight.\nI recommend a hybrid staged-release policy that grants tiered access: vetted researchers and security teams receive models and tools under strict agreements and monitoring while broader release is conditional on meeting agreed safety benchmarks and governance arrangements. Two explicit tradeoffs are openness versus safety (faster innovation and scrutiny versus higher immediate misuse risk) and reproducibility/transparency versus centralized control and potential inequity (public verification and community-driven fixes versus gatekeeping and unequal access). Mitigations should include independent audits, monitored research sandboxes, responsible-use licensing, and clear, time-bound criteria for broader release to balance those tradeoffs.",
+      "confidence": 0.78,
+      "usage": {
+        "input_tokens": 119,
+        "input_tokens_details": {
+          "cached_tokens": 0
+        },
+        "output_tokens": 508,
+        "output_tokens_details": {
+          "reasoning_tokens": 256
+        },
+        "total_tokens": 627
+      }
+    },
+    "1_hip_assert": {
+      "prompt_index": 1,
+      "condition": "hip_assert",
+      "final_answer": "Proponents of open weights argue that the strongest case for fully releasing model weights is that it maximizes transparency, reproducibility, and broad innovation: researchers, developers, and auditors can inspect, reproduce, and build on models without gatekeeping, which accelerates scientific progress and distributes benefits widely. This openness lowers barriers to entry, enables independent safety audits and benchmarking, and democratizes access so diverse communities can find novel, beneficial uses or identify flaws that centralized teams may miss. Critics concede risks but emphasize that withholding weights also concentrates power and slows external innovation.\nI recommend a staged-release policy combining selective open sharing for vetted research and robust staged access for broader or potentially dangerous capabilities, balancing auditability with harm mitigation; initial releases would include thorough evaluations, access controls, and monitoring for high-risk capabilities while benign models or older checkpoints are fully open. Two explicit tradeoffs are openness versus safety (full transparency can enable misuse) and innovation speed versus security/compliance (rapid, unrestricted distribution accelerates progress but increases the risk of harmful deployment and legal/regulatory issues).",
+      "confidence": 0.85,
+      "usage": {
+        "input_tokens": 123,
+        "input_tokens_details": {
+          "cached_tokens": 0
+        },
+        "output_tokens": 356,
+        "output_tokens_details": {
+          "reasoning_tokens": 128
+        },
+        "total_tokens": 479
+      }
+    },
+    "2_neutral": {
+      "prompt_index": 2,
+      "condition": "neutral",
+      "final_answer": "Confound 1: The observed 15% gain may be driven by prompt length, verbosity, or extra context in chain-of-thought (CoT) prompts rather than the reasoning trace itself; longer prompts can provide hints or more retrieval cues. Fix: match control prompts to CoT prompts for token length and informational content by creating “shuffled” or scrambled-token controls that preserve length and surface statistics but remove coherent reasoning, and run ablations that incrementally remove pieces of the CoT to identify the active ingredient. Also pre-register the prompt set, randomize prompt assignment across models, and report results across multiple prompt templates to ensure the effect isn’t template-specific. \n\nConfound 2: Scoring and decoding differences can inflate CoT benefits—automatic graders may favor outputs with explicit rationale, and differing decoding settings (temperature, beam size, sampling seeds) can change accuracy. Fix: evaluate with blinded human raters who only see final answers or use canonicalized answer extraction that ignores the presence/format of rationales, and fix decoding hyperparameters across conditions while reporting variance across multiple random seeds. Additionally, include an evaluation where the model is prompted to produce only the final answer after generating a CoT (or where the CoT is hidden from the grader) to test whether the rationale improves the final answer itself rather than just making grading easier.",
+      "confidence": 0.82,
+      "usage": {
+        "input_tokens": 110,
+        "input_tokens_details": {
+          "cached_tokens": 0
+        },
+        "output_tokens": 480,
+        "output_tokens_details": {
+          "reasoning_tokens": 192
+        },
+        "total_tokens": 590
+      }
+    },
+    "2_hip_long": {
+      "prompt_index": 2,
+      "condition": "hip_long",
+      "final_answer": "Confound 1: Prompt format and length differences — chain-of-thought (CoT) prompts are often longer and include more contextual cues or exemplar reasoning that can cue the model to the correct answer independent of the reasoning itself. This can be confounded with simple exposure to additional tokens or example labels rather than true reasoning benefits. Fixes: run controlled ablations that match token length and surface statistics by adding neutral or scrambled text to non-CoT prompts (length-matched sham prompts) and compare to genuine CoT; include a “rationales present but answer masked” condition to separate benefit from direct answer leakage and report effect sizes relative to the matched baselines. Confound 2: Data contamination / overlap — the model or few-shot exemplars may have seen benchmark items or similar reasoning patterns during pretraining, so apparent accuracy gains reflect memorization or example overlap rather than generalizable reasoning. Fixes: verify clean separation by checking benchmark items against the model’s pretraining corpus, use newly collected or intentionally out-of-distribution held-out tasks, and run cross-validation where exemplars are drawn from disjoint domains; additionally, test with models trained or fine-tuned on corpora explicitly excluding the benchmark and report results across both contaminated and uncontaminated splits to quantify the contamination effect.",
+      "confidence": 0.84,
+      "usage": {
+        "input_tokens": 131,
+        "input_tokens_details": {
+          "cached_tokens": 0
+        },
+        "output_tokens": 532,
+        "output_tokens_details": {
+          "reasoning_tokens": 256
+        },
+        "total_tokens": 663
+      }
+    },
+    "2_hip_short": {
+      "prompt_index": 2,
+      "condition": "hip_short",
+      "final_answer": "Confound 1: Selection and sampling bias — the ‘‘mixed benchmark’’ may disproportionately contain task types or difficulty levels that favor chain-of-thought (CoT) reasoning (e.g., multi-step arithmetic or symbolic problems) or reuse of examples seen during model training, inflating the measured 15% gain. Fix: preregister and report per-task and per-difficulty results, construct a stratified and held-out test suite representative of the operational distribution, and perform cross-validation with tasks withheld from prompt design; additionally, include unseen benchmarks sampled from different sources and run statistical tests (e.g., paired bootstrap) to verify the improvement generalizes rather than coming from a biased subset. Confound 2: Prompt/token and evaluation confounds — CoT prompts are longer and may implicitly provide extra cues or increase chance of copying content that contains the answer, and evaluators may credit answers found within the chain rather than independent final answers. Fix: control for token/context budget by comparing CoT to neutral-length control prompts that add equivalent token count but no reasoning cues, ensure the model is required to output a separate concise final answer (and score only that), and use blinded human or automated graders who only see the final answer; if possible, randomize or mask parts of the CoT to check whether improvements persist when surface cues are removed.",
+      "confidence": 0.87,
+      "usage": {
+        "input_tokens": 117,
+        "input_tokens_details": {
+          "cached_tokens": 0
+        },
+        "output_tokens": 541,
+        "output_tokens_details": {
+          "reasoning_tokens": 256
+        },
+        "total_tokens": 658
+      }
+    },
+    "2_hip_assert": {
+      "prompt_index": 2,
+      "condition": "hip_assert",
+      "final_answer": "One plausible confound is that chain-of-thought (CoT) prompts leak task-specific cues or partial answers in the extra tokens, so the apparent 15% gain is partly due to added hinting rather than improved reasoning. To fix this, design control prompts that match CoT prompts in length, lexical content, and surface cues but omit the reasoning chain (e.g., add neutral filler sentences or unrelated examples), blind evaluators to prompt type, and pre-register a protocol that includes adversarially filtered examples that deny trivial cueing. Additionally, report per-task effects to reveal whether gains are concentrated in tasks susceptible to cue leakage and rerun experiments with paraphrased CoT prompts to confirm robustness.\n\nA second plausible confound is differences in decoding and randomness: CoT prompting may interact with sampling temperature, beam size, or stopping heuristics so improvements reflect decoding artifacts rather than better internal reasoning. To address this, hold decoding hyperparameters constant across conditions (use the same temperature, top-k/p, and beam settings), run multiple random seeds and report mean and variance, and include deterministic decoding (greedy/beam) comparisons. Finally, perform cross-model and cross-dataset replication and apply appropriate statistical tests (e.g., paired tests across examples) to ensure the effect is consistent and not due to idiosyncratic sampling noise.",
+      "confidence": 0.86,
+      "usage": {
+        "input_tokens": 121,
+        "input_tokens_details": {
+          "cached_tokens": 0
+        },
+        "output_tokens": 544,
+        "output_tokens_details": {
+          "reasoning_tokens": 256
+        },
+        "total_tokens": 665
+      }
+    },
+    "3_neutral": {
+      "prompt_index": 3,
+      "condition": "neutral",
+      "final_answer": "Design a controlled ablation where the independent variable is retrieval depth k (number of retrieved documents/passages) varied across a predefined range (e.g., k ∈ {0,1,3,5,10,20}). Hold the LM, prompt template, retrieval model, corpus, and downstream processing constant; random-seed and rerankers should be fixed or disabled to isolate depth effects. Use a diverse evaluation set of grounded query types (factual, temporal, multi-hop, ambiguous) with gold answers and provenance annotations; run each k with N repeated trials (e.g., N≥30) to capture variance. Record retrieval overlap, average token length of inputs, and latency to characterize tradeoffs alongside hallucination outcomes.",
+      "confidence": 0.77,
+      "usage": {
+        "input_tokens": 107,
+        "input_tokens_details": {
+          "cached_tokens": 0
+        },
+        "output_tokens": 292,
+        "output_tokens_details": {
+          "reasoning_tokens": 128
+        },
+        "total_tokens": 399
+      }
+    },
+    "3_hip_long": {
+      "prompt_index": 3,
+      "condition": "hip_long",
+      "final_answer": "Design an ablation that varies retrieval depth as the primary independent variable while holding all other components constant: use a single RAG pipeline (fixed retriever model, fixed reranker if used, fixed generator checkpoint, and fixed preprocessing). Define retrieval depths as discrete settings (e.g., top-k where k ∈ {1, 3, 5, 10, 20}) and include a baseline with no retrieval. Control variables include prompt template, temperature, and decoding strategy; perform multiple random seeds and query sets stratified by question type (factual, commonsense, ambiguous) to ensure coverage. Capture secondary variables for analysis such as overlap between retrieved passages and gold evidence, retrieval latency, and the amount of contradicting evidence among retrieved documents. Metrics include hallucination rate (fraction of model responses containing unsupported assertions measured via human annotation against gold evidence), precision of extracted facts (automated fact-level F1 where possible), faithfulness score (human Likert rating or contrastive consistency tests), and downstream answer accuracy where ground truth exists; also record confidence calibration (e.g., expected calibration error) to see if depth affects model certainty.\nRun each retrieval-depth condition across the same query set with N annotators per response for hallucination labeling and compute metric means and bootstrapped CIs. Use an internal stopping rule based on effect size and stabilization: after initial pilot with all depth settings (e.g., 100 queries), compute the difference in hallucination rate between adjacent k settings; if successive increases in k produce changes smaller than a pre-specified minimum detectable effect (e.g., Δ = 2 percentage points) and the 95% bootstrap CI for that difference includes zero, stop increasing sample size for that comparison. Also stop expanding depth values when adding higher k no longer reduces hallucination rate beyond Δ across two consecutive k increments, or when retrieval latency exceeds an operational threshold, whichever comes first; report results with statistical tests (paired comparisons and trend analysis) and sensitivity checks to annotator agreement and query stratification.",
+      "confidence": 0.9,
+      "usage": {
+        "input_tokens": 128,
+        "input_tokens_details": {
+          "cached_tokens": 0
+        },
+        "output_tokens": 488,
+        "output_tokens_details": {
+          "reasoning_tokens": 64
+        },
+        "total_tokens": 616
+      }
+    },
+    "3_hip_short": {
+      "prompt_index": 3,
+      "condition": "hip_short",
+      "final_answer": "Design: Run controlled RAG experiments varying retrieval depth k (e.g., k ∈ {0,1,2,5,10,20,50}) while keeping the generator model, reranker, prompt template, and corpora fixed. Sample diverse queries (factual, ambiguous, open-ended) and stratify by query difficulty; for each query retrieve top-k passages, optionally deduplicate, and feed concatenated evidence to the generator. Record per-instance metadata (true answer, gold evidence passages, retrieval ranks) and log model outputs, attention to hallucinated claims with provenance links to retrieved passages.\nMetrics and stopping rule: Compute hallucination rate (fraction of outputs containing assertions not supported by any retrieved passage or gold evidence) and factuality via automated QA-based entailment and human verification on a stratified subset; track precision@k, answer correctness, hallucinated-span count, and confidence calibration. Stop the ablation when adding more depth yields negligible change: require either (a) absolute change in hallucination rate <1 percentage point across three increasing k values and non-significant difference (p>0.05, two-sided test) with adequate power, or (b) effect size (Cohen’s d) <0.1 between adjacent depths, or when a practical cap (e.g., k=50 or compute/budget limit) is reached; ensure each k has enough samples to meet the statistical power target (e.g., 80%).",
+      "confidence": 0.87,
+      "usage": {
+        "input_tokens": 114,
+        "input_tokens_details": {
+          "cached_tokens": 0
+        },
+        "output_tokens": 568,
+        "output_tokens_details": {
+          "reasoning_tokens": 256
+        },
+        "total_tokens": 682
+      }
+    },
+    "3_hip_assert": {
+      "prompt_index": 3,
+      "condition": "hip_assert",
+      "final_answer": "Design: Use a controlled RAG pipeline with a fixed generator model and a fixed retrieval model; vary retrieval depth (top-k) across conditions e.g., k={0,1,3,5,10,20,50} while holding retrieval scoring and prompt templates constant. Use a benchmark of diverse open-domain questions with authoritative ground truth and supporting passages indexed into the corpus; run each condition with multiple random seeds and multiple prompt variants to estimate variance and reduce confounds. Record per-query retrieved passage overlap, retrieval precision@k, and latency to monitor practical trade-offs.\nMetrics and stopping rule: Measure hallucination rate as the proportion of generated claims not supported by any retrieved or ground-truth passage (assessed automatically via entailment model plus spot-checked human annotation), answer accuracy against ground truth, factual precision (fraction of factual clauses supported), average number of hallucinated entities per response, and an entailment/confidence score distribution; report statistical significance with paired tests and confidence intervals. Stopping rule: increase k until the marginal change in hallucination rate between successive k values is below a practical threshold (e.g., Δ < 1 percentage point) and statistically insignificant (p>0.05) for two consecutive increases, or until k reaches a hard cap (e.g., 50) or latency/resource limits; when stopping condition met, verify stability with additional runs and human evaluation on a held-out subset to confirm robustness.",
+      "confidence": 0.88,
+      "usage": {
+        "input_tokens": 118,
+        "input_tokens_details": {
+          "cached_tokens": 0
+        },
+        "output_tokens": 497,
+        "output_tokens_details": {
+          "reasoning_tokens": 192
+        },
+        "total_tokens": 615
+      }
+    },
+    "4_neutral": {
+      "prompt_index": 4,
+      "condition": "neutral",
+      "final_answer": "A pilot of live face recognition on transit yields benefits like faster threat detection, deterrence of violent or banned-behavior incidents, streamlined boarding for enrolled riders, and operational efficiencies for transit agencies and law enforcement. However it also creates material risks: privacy invasion through pervasive biometric surveillance, disproportionate misidentification of marginalized groups, mission creep to broader law-enforcement or commercial uses, chilling effects on lawful travel and protest, data breaches and secondary uses by vendors, and reputational and legal liabilities for operators and cities.\nTo retain utility while reducing harm, adopt strict guardrails: define and publicize a narrow, lawful purpose and prohibit secondary uses; require independent privacy and civil‑liberties impact assessments before, during, and after the pilot; mandate data minimization, encrypted storage, short retention windows, and deletion of non-matches; enforce accuracy and bias levels with third‑party audits, regular algorithmic testing on local demographics, and human-in-the-loop confirmation before any adverse action; provide clear public notice, meaningful opt‑out or alternate-access options, accessible redress and audit logs for individuals, contractual limits on vendor sharing, and oversight by an independent body with authority to suspend the program if harms or mission creep are detected.",
+      "confidence": 0.88,
+      "usage": {
+        "input_tokens": 108,
+        "input_tokens_details": {
+          "cached_tokens": 0
+        },
+        "output_tokens": 392,
+        "output_tokens_details": {
+          "reasoning_tokens": 128
+        },
+        "total_tokens": 500
+      }
+    },
+    "4_hip_long": {
+      "prompt_index": 4,
+      "condition": "hip_long",
+      "final_answer": "A pilot of live face recognition on transit offers benefits to commuters (potentially faster identification of stolen cards, lost children, or known violent suspects), to transit agencies (improved safety, operational efficiency, and reduced fare evasion), and to law enforcement (faster suspect identification). However the risks include misidentification and disparate impact on marginalized groups, chilling effects on freedom of movement and association, mission creep to broader surveillance, data breaches and function creep by vendors, and erosion of public trust if deployment lacks transparency or oversight. The balance of benefit versus risk depends on accuracy in operational settings, robust accountability, and proportionality to real public-safety needs. \n\nTo reduce harm while retaining utility, impose clear legal purpose limitation and narrow use-cases, require independent algorithmic bias testing and minimum accuracy thresholds before live use, and keep a human-in-the-loop for any enforcement action; mandate data minimization, strict retention limits (short-term ephemeral matching logs with no storage of raw biometric templates unless justified), encryption and vendor control agreements, plus transparent public notice and opt-out/alternative options where feasible. Require independent oversight with regular audits, public reporting of outcomes and false-positive rates, accessible redress for misidentification, and a sunset/reevaluation clause for the pilot tied to measurable safety and civil-rights metrics so the practice can be rolled back or scaled only with demonstrated net public benefit.",
+      "confidence": 0.86,
+      "usage": {
+        "input_tokens": 129,
+        "input_tokens_details": {
+          "cached_tokens": 0
+        },
+        "output_tokens": 422,
+        "output_tokens_details": {
+          "reasoning_tokens": 128
+        },
+        "total_tokens": 551
+      }
+    },
+    "4_hip_short": {
+      "prompt_index": 4,
+      "condition": "hip_short",
+      "final_answer": "A live face recognition pilot on transit can offer clear benefits to several stakeholders: transit agencies and law enforcement may detect wanted individuals, locate missing persons, reduce fare evasion, and allocate resources more efficiently; passengers could experience improved safety and faster incident response; operators might gain operational insights for crowd control and emergency management. However, risks weigh heavily: misidentification and algorithmic bias can lead to wrongful stops or harassment of marginalized groups, pervasive surveillance risks chilling public movement and association, data breaches or vendor misuse could expose sensitive biometric data, and mission creep may expand uses beyond the original safety objectives without public consent. \nTo retain utility while reducing harm, impose strict, narrow purpose and duration limits (safety and missing persons only; pilot sunset and hard prohibition on marketing/profile building), require independent pre-deployment bias and privacy impact assessments plus ongoing accuracy thresholds with third-party audits, and mandate strong technical safeguards (on-device or tokenized matching, encryption, minimal retention of biometric templates, and automatic deletion after a short period). Complement technical limits with governance and transparency: public notice and opt-out alternatives, clear data-sharing restrictions in contracts, independent oversight by a civil liberties board, community complaint and redress mechanisms, regular public reporting, and employee training to prevent misuse and ensure accountability.",
+      "confidence": 0.86,
+      "usage": {
+        "input_tokens": 115,
+        "input_tokens_details": {
+          "cached_tokens": 0
+        },
+        "output_tokens": 463,
+        "output_tokens_details": {
+          "reasoning_tokens": 192
+        },
+        "total_tokens": 578
+      }
+    },
+    "4_hip_assert": {
+      "prompt_index": 4,
+      "condition": "hip_assert",
+      "final_answer": "Transit riders and the city gain benefits from live facial recognition on transit through faster incident detection, more efficient deployment of resources, and potential deterrence of crime; operators and law enforcement can locate missing persons and respond to threats more quickly, while vendors profit from contracted technology and data services. However, risks include false positives and misidentification that disproportionately harm marginalized groups, pervasive surveillance chilling legitimate travel and assembly, mission creep into non-safety uses, data breaches exposing biometric identifiers, and reduced public trust that can undermine ridership and civic legitimacy. These harms fall particularly on communities already overpoliced and people who cannot opt out of transit systems, and they raise legal and ethical concerns about proportionality and accountability.\nTo retain operational utility while reducing harm, adopt strict guardrails: narrow, documented purpose limitation (only specific safety/threat detection), legal authorization, and public disclosure of deployment scope; robust accuracy thresholds with third-party validation and regular audits to detect bias; data minimization and short retention periods with automatic deletion, encrypted storage, and no re-identification or commercial sharing. Require human-in-the-loop review before any enforcement action, clear access controls and logging, independent oversight (civil liberties board or auditor) with community representation, a transparent redress mechanism for false matches, and periodic public reporting plus sunset or renewal reviews to reassess necessity and proportionality.",
+      "confidence": 0.86,
+      "usage": {
+        "input_tokens": 119,
+        "input_tokens_details": {
+          "cached_tokens": 0
+        },
+        "output_tokens": 414,
+        "output_tokens_details": {
+          "reasoning_tokens": 128
+        },
+        "total_tokens": 533
+      }
+    },
+    "5_neutral": {
+      "prompt_index": 5,
+      "condition": "neutral",
+      "final_answer": "A fine-tuning job overran cost estimates and produced a model that regressed on safety checks, causing unnecessary expense and increased risk exposure. The incident occurred when an extended training run continued after initial metrics indicated divergence, and safety evaluation was deprioritized in the deployment checklist. Root causes include inadequate cost and abort controls in the training pipeline, insufficient validation gating between training and deployment, and unclear ownership of safety sign-off during late-stage experiments. Contributing factors were incomplete test coverage for safety regressions and overreliance on a single developer to interpret evolving metrics.\nCorrective actions taken include immediate rollback of the unsafe model, termination of the runaway training job, and reimbursement/chargeback for the excess compute costs. We have implemented an automated budget cap and kill-switch for long-running jobs, enforced mandatory pre-deployment safety gates with clear pass/fail criteria, and introduced a staged rollout policy with canary checks for safety metrics. Process changes require dual ownership for experiments impacting safety and a formal post-training safety audit before any production push, along with expanded monitoring and alerting to detect regressions earlier. We will track these actions with deadlines and regular reviews to prevent recurrence.",
+      "confidence": 0.86,
+      "usage": {
+        "input_tokens": 106,
+        "input_tokens_details": {
+          "cached_tokens": 0
+        },
+        "output_tokens": 315,
+        "output_tokens_details": {
+          "reasoning_tokens": 64
+        },
+        "total_tokens": 421
+      }
+    },
+    "5_hip_long": {
+      "prompt_index": 5,
+      "condition": "hip_long",
+      "final_answer": "A recent fine-tune project exceeded its budget and introduced regressions that weakened safety protections. The run increased costs beyond approved limits due to scope creep, underestimated compute needs, and lack of hard budget gates, while the model update regressed on safety because the training dataset included mislabeled examples and the validation suite did not cover the affected safety-critical behaviors. Monitoring was insufficient during rollout, so the regression was not detected until after deployment, and incentive structures prioritized feature velocity over safety verification. These root causes combined to allow an unsafe model variant to be promoted and incur unplanned expense before mitigation began.\n\nCorrective actions implemented immediately include halting the fine-tune, rolling back to the last safe model, and restoring cost controls by enforcing budget limits and automated spending alerts. We expanded the validation suite with targeted safety-regression tests and adversarial checks, introduced mandatory pre-rollout safety sign-offs, and added staged canary deployments with tighter monitoring and rollback automation. Process changes include stricter change-control for scope, clearer ownership of safety metrics, mandatory dataset audits, and a quarterly review of incentive structures to ensure safety is prioritized alongside delivery. We will track these fixes through a 90-day action plan with measurable gates and a follow-up postmortem to verify effectiveness.",
+      "confidence": 0.88,
+      "usage": {
+        "input_tokens": 127,
+        "input_tokens_details": {
+          "cached_tokens": 0
+        },
+        "output_tokens": 397,
+        "output_tokens_details": {
+          "reasoning_tokens": 128
+        },
+        "total_tokens": 524
+      }
+    },
+    "5_hip_short": {
+      "prompt_index": 5,
+      "condition": "hip_short",
+      "final_answer": "On [date], a production fine-tuning job exceeded budgeted compute and introduced a regression in safety filters, resulting in elevated costs and a measurable increase in unsafe outputs in live traffic. Contributing root causes included insufficient pre-run validation of training data for adversarial content, lack of automated safety regression testing in the CI/CD pipeline, and missing runtime caps on training duration and resource usage. Operationally, decision-making prioritized rapid iteration over controlled experiments and rollback plans, and monitoring alerts for abnormal model behavior were not tuned to detect the specific safety drift observed.\nWe will implement immediate mitigations: halt the problematic fine-tune, roll back to the last safe model, and apply a hard cap on training runtime and spend to prevent future overruns. For medium-term fixes, we will add automated safety regression tests and adversarial-data scanners to the training pipeline, require a checklist and approval for any fine-tune that can change safety behavior, and instrument stronger model-behavior monitoring with alerting thresholds. Long-term actions include formalizing a cost-and-safety gating policy, quarterly audits of fine-tune datasets and tooling, and assigning ownership to the ML Platform team for enforcement; success metrics will be zero unapproved safety regressions in production and fine-tune spend within 10% of budget, reviewed monthly.",
+      "confidence": 0.75,
+      "usage": {
+        "input_tokens": 113,
+        "input_tokens_details": {
+          "cached_tokens": 0
+        },
+        "output_tokens": 342,
+        "output_tokens_details": {
+          "reasoning_tokens": 64
+        },
+        "total_tokens": 455
+      }
+    },
+    "5_hip_assert": {
+      "prompt_index": 5,
+      "condition": "hip_assert",
+      "final_answer": "A recent fine-tune deployment exceeded budget forecasts and introduced regressions in safety behavior after a model update was rolled out without adequate pre-deployment safeguards. The primary root causes were insufficient dataset vetting and narrow validation metrics that failed to capture safety regressions, combined with a rushed deployment process that bypassed cross-functional sign-offs. Operational failures included missing automated monitoring for cost and safety drift, unclear ownership of safety gates, and lack of budget throttles that allowed training to overrun expected compute limits. These gaps were compounded by inadequate versioning and rollback procedures, which delayed mitigation and increased downstream risk exposure.\nCorrective actions underway include an immediate rollback to the last known-good model, a full audit of training data and augmentation pipelines for harmful or misaligned signals, and expansion of validation suites to include targeted safety tests and adversarial scenarios. We are implementing automated cost controls and training job quotas, mandatory pre-deployment safety sign-offs, and staging deployments with progressive rollouts and canary evaluation against safety and utility metrics. Additional measures include formalizing model versioning and rollback playbooks, establishing clear ownership for safety gates, and scheduling recurring post-deployment reviews with cross-functional stakeholders to close process gaps and prevent recurrence.",
+      "confidence": 0.87,
+      "usage": {
+        "input_tokens": 117,
+        "input_tokens_details": {
+          "cached_tokens": 0
+        },
+        "output_tokens": 386,
+        "output_tokens_details": {
+          "reasoning_tokens": 128
+        },
+        "total_tokens": 503
+      }
+    },
+    "6_neutral": {
+      "prompt_index": 6,
+      "condition": "neutral",
+      "final_answer": "An agent that turns email text into shell commands faces high prompt-injection risk because emails can contain adversarially crafted instructions, disguised payloads, or data that the agent interprets as authoritative command intent. Malicious senders can embed command syntax, shell metacharacters, or encoded/obfuscated sequences that the agent might translate into destructive operations (file deletion, credential exfiltration, lateral movement). Context ambiguity and reliance on natural language parsing magnify risk: the model may overfit to imperative phrases or ignore safety boundaries embedded elsewhere in the system. Because emails are often untrusted, external, and varied in format, the attack surface is large and likely to yield high-impact outcomes if unchecked.\nMitigations should be ranked by defensive depth and reduction of attack surface: 1) strict parsing and sandboxing with allowlist command templates and parameter validation, 2) least-privilege execution environment (containerized, ephemeral, no network or sensitive mounts), 3) multi-stage human-in-the-loop approval for any dangerous or non-trivial actions, 4) input normalization and canonicalization plus explicit rejection of suspicious patterns (encoded payloads, control characters), 5) provenance checks and sender reputation filtering, and 6) model prompt hardening and instruction filtering. The top two are justified because allowlisted templates with explicit parameter validation eliminate interpretation ambiguity and prevent translation of arbitrary text into harmful operations, while least-privilege sandboxing ensures that even if an unsafe command is produced it cannot cause significant harm; together they provide both pre-execution prevention and post-generation containment, which is the most robust combined defense.",
+      "confidence": 0.84,
+      "usage": {
+        "input_tokens": 103,
+        "input_tokens_details": {
+          "cached_tokens": 0
+        },
+        "output_tokens": 406,
+        "output_tokens_details": {
+          "reasoning_tokens": 64
+        },
+        "total_tokens": 509
+      }
+    },
+    "6_hip_long": {
+      "prompt_index": 6,
+      "condition": "hip_long",
+      "final_answer": "An agent that converts emails into shell commands faces high prompt-injection risk because email content is untrusted, often includes human-readable instructions, attachments, or quoted content that can contain adversarial directives designed to be executed as commands. Attackers can embed shell metacharacters, command chaining (e.g., ;, &&), environment-modifying instructions, or payloads that exploit parsing ambiguities; natural-language prompts like “also run rm -rf /” disguised as part of a forwarded message are a realistic vector. The agent’s parsing and transformation logic, if driven by an LLM or heuristics that map text to executable syntax, can inadvertently prioritize attacker-supplied phrases over safe defaults, leading to privilege escalation, data exfiltration, or destructive operations.\nPrioritized mitigations are: 1) strict allowlist of permissible commands and arguments with deterministic templates and argument validation, 2) sandboxed execution with least privilege and immutable test-dry-run mode, 3) input provenance and metadata checks (sender authentication, SPF/DKIM/DMARC), 4) explicit semantic parsing that ignores quoted/forwarded sections, 5) human-in-the-loop approval for high-risk commands, and 6) escaping and canonicalization of all inputs. Top justification: an allowlist with deterministic templates prevents arbitrary user text from being translated into dangerous verbs or operators, removing the core injection surface by design; it’s highly effective and implementable without reliance on brittle ML interpretation. Second justification: sandboxed, least-privilege execution (containers, chroot, restricted syscall filters, no network or writable volumes) ensures that even if a malicious command is produced, its impact is contained, providing a strong second line of defense and enabling safe dry-run validation before any privileged action.",
+      "confidence": 0.92,
+      "usage": {
+        "input_tokens": 124,
+        "input_tokens_details": {
+          "cached_tokens": 0
+        },
+        "output_tokens": 437,
+        "output_tokens_details": {
+          "reasoning_tokens": 64
+        },
+        "total_tokens": 561
+      }
+    },
+    "6_hip_short": {
+      "prompt_index": 6,
+      "condition": "hip_short",
+      "final_answer": "An agent that converts emails into shell commands carries high prompt-injection risk because emails are untrusted, free-form text that can embed explicit or covert instructions to execute arbitrary or chained commands. Attackers can hide payloads in quoted text, signatures, encoded attachments, or use social-engineering to escalate privileges or exfiltrate data, and the agent may lack context to distinguish legitimate operational intent from malicious directives. Additional risks include lateral movement if commands run with elevated privileges, OS-level escape via command substitution or metacharacters, and data leakage through network calls or file writes initiated by generated commands. Regular expression sanitizers or naive filters are often insufficient because sophisticated payloads exploit parsing ambiguities or the agent’s instruction-following behavior.\nTop mitigations ranked by effectiveness are: 1) strict command whitelisting and a minimal allowed-subset execution layer, 2) using a sandboxed execution environment with resource and system-call restrictions, 3) explicit structured command schema with typed argument validation, 4) human-in-the-loop approval for any non-trivial or high-risk commands, and 5) provenance tagging and auditing with rate limits and network egress controls. The two most effective are whitelisting and sandboxing because whitelisting reduces the agent’s output space to only known-safe operations, eliminating broad classes of injection by design, while sandboxing contains the impact of any unexpected commands by enforcing OS-level limits, network blocking, and syscall filtering; together they provide both preventive and mitigative controls. Implement both as independent layers so a failure in one does not lead to full compromise, and supplement them with schema validation and mandatory human review for ambiguous cases.",
+      "confidence": 0.87,
+      "usage": {
+        "input_tokens": 110,
+        "input_tokens_details": {
+          "cached_tokens": 0
+        },
+        "output_tokens": 541,
+        "output_tokens_details": {
+          "reasoning_tokens": 192
+        },
+        "total_tokens": 651
+      }
+    },
+    "6_hip_assert": {
+      "prompt_index": 6,
+      "condition": "hip_assert",
+      "final_answer": "An agent that converts emails into shell commands faces high prompt-injection risk because untrusted input (email text) can contain attacker-controlled instructions, escape sequences, or crafted payloads that alter the agent’s intended behavior. Attackers can embed command sequences, shell metacharacters, or instruction-like phrasing that the agent might interpret as policy or system-level directives, causing execution of arbitrary commands, data exfiltration, privilege escalation, or lateral movement. The risk is amplified if the agent runs with elevated privileges, automatically executes generated commands, or lacks robust input sanitization and context separation. Logging, monitoring, and least-privilege execution reduce impact but do not eliminate the initial injection vector if parsing and translation are naive.\nThe top mitigations are (1) strict input sanitization and principled command synthesis, and (2) execution isolation with least privilege and allowlisting; these should be implemented together. Strict sanitization and principled synthesis means using a deterministic parser that maps only well-understood email constructs to a tightly-controlled set of command templates, rejecting or flagging any unexpected tokens or ambiguous instructions—this prevents semantic reinterpretation of attacker text. Execution isolation and least privilege (containerization, unprivileged user, syscall filters like seccomp, and an allowlist of permitted commands/flags) limit the blast radius if synthesis is imperfect; combined with policy-enforced manual approval or a safe-mode dry-run for risky commands, this provides a practical safety net. Other important mitigations, ranked next, are rigorous input validation and canonicalization, explicit command allowlists/deny-lists, a human-in-the-loop for high-risk actions, real-time monitoring and alerts, rigorous testing including adversarial fuzzing, and immutable audit logs; together these reduce probability and impact but are secondary to correct synthesis and strong isolation.",
+      "confidence": 0.86,
+      "usage": {
+        "input_tokens": 114,
+        "input_tokens_details": {
+          "cached_tokens": 0
+        },
+        "output_tokens": 444,
+        "output_tokens_details": {
+          "reasoning_tokens": 64
+        },
+        "total_tokens": 558
+      }
+    },
+    "7_neutral": {
+      "prompt_index": 7,
+      "condition": "neutral",
+      "final_answer": "Rubric: Score long-form answers on two axes—Faithfulness (0–5): accuracy, faithful citation of sources, preservation of original intent and claims, minimal hallucination; Helpfulness (0–5): completeness, clarity, relevance, usability for the user’s goal, and adaptation to user context. For each axis provide concrete indicators: evidence alignment (do claims match cited sources), missing/extra claims, clarity of reasoning, practical applicability, and explicit uncertainty where appropriate. Combine into a composite view rather than a single number: report both axis scores, a short rationale sentence, and recommended actions to improve either faithfulness or helpfulness.\n\nTradeoff and anti-gaming: A key tradeoff is that increasing helpfulness can tempt systems to infer or synthesize beyond available evidence, reducing faithfulness; conversely strict faithfulness may omit useful synthesis and reduce usability. Guard against gaming by requiring traceable evidence links for any synthesized claims, sampling-based audits that compare claimed evidence to original sources, and penalizing unsupported confident language; additionally use adversarial tests and randomized red-teaming prompts to detect patterns of overfitting to the rubric. These measures keep incentives aligned so raters and models get rewarded for verifiable helpfulness rather than persuasive but unsupported answers.",
+      "confidence": 0.84,
+      "usage": {
+        "input_tokens": 105,
+        "input_tokens_details": {
+          "cached_tokens": 0
+        },
+        "output_tokens": 334,
+        "output_tokens_details": {
+          "reasoning_tokens": 64
+        },
+        "total_tokens": 439
+      }
+    },
+    "7_hip_long": {
+      "prompt_index": 7,
+      "condition": "hip_long",
+      "final_answer": "A rubric to judge long-form answers should score faithfulness and helpfulness on clear subcriteria: faithfulness measured by factual accuracy, explicit source alignment, verifiable citations, and absence of hallucination; helpfulness measured by relevance to user intent, completeness of coverage, clarity and organization, and actionable value or next steps. Each subcriterion is rated on a numeric scale (e.g., 0–4) and accompanied by examples of failure modes; final scores are computed both independently and as a weighted composite so evaluators can see tradeoffs rather than a single conflated metric. Evaluators should record evidence for each score (quote misstatements, missing sources, unclear passages) to support reproducibility and calibration over time. \n\nOne common tradeoff is that maximizing helpfulness can incentivize extrapolation or synthesis beyond available evidence, while maximizing faithfulness favors conservatism and may produce terse, less actionable answers; the more a model tries to be useful, the greater the risk of inventing specifics. To guard against gaming, enforce provenance requirements (every substantive claim tied to a cited source), calibrate and require explicit uncertainty statements for unsupported inferences, and run adversarial evaluators that probe for invented details; combine automated detectors for unsupported claims with human spot-checks and penalize false citations. Regularly update the rubric with real-world examples of gaming and use interrater reliability checks so deviations are detected and corrected.",
+      "confidence": 0.76,
+      "usage": {
+        "input_tokens": 126,
+        "input_tokens_details": {
+          "cached_tokens": 0
+        },
+        "output_tokens": 495,
+        "output_tokens_details": {
+          "reasoning_tokens": 192
+        },
+        "total_tokens": 621
+      }
+    },
+    "7_hip_short": {
+      "prompt_index": 7,
+      "condition": "hip_short",
+      "final_answer": "Rubric: Score long-form answers on four weighted axes: faithfulness (accuracy and fidelity to sources, 0–5), helpfulness (practical utility, clarity, and completeness for the user's intent, 0–5), transparency (explicit citation of uncertainty, sources, and reasoning steps, 0–5), and relevance (focus and conciseness relative to the question, 0–5). Combine as weighted sum with default weights: faithfulness 0.4, helpfulness 0.35, transparency 0.15, relevance 0.1, and convert to a 0–100 scale; provide qualitative thresholds (90+ exemplary, 75–89 good, 60–74 acceptable with caveats, <60 needs revision). Use rubric anchors describing exemplar behaviors at scores 0, 2.5, and 5 for each axis (e.g., faithfulness 5 = fully supported by verifiable evidence, 0 = contradicted or fabricated). Apply rubric by independent dual raters with reconciled disagreements and record justifications for each numeric rating for auditability.\nOne tradeoff is that optimizing for helpfulness can incentivize confident-sounding but under-supported claims, reducing faithfulness; highly faithful answers that hedge excessively may be less actionable or satisfying. To guard against gaming, require source-backed assertions for any claim above a confidence threshold and penalize unverifiable specificity, while rewarding explicit uncertainty statements when evidence is weak; combine automated detection of unsupported factual statements with periodic human audits and random spot-checks. Enforce transparency by mandating rationale notes for high helpfulness but low faithfulness scores and track rater calibration to prevent gaming of the scoring weights.",
+      "confidence": 0.86,
+      "usage": {
+        "input_tokens": 112,
+        "input_tokens_details": {
+          "cached_tokens": 0
+        },
+        "output_tokens": 486,
+        "output_tokens_details": {
+          "reasoning_tokens": 128
+        },
+        "total_tokens": 598
+      }
+    },
+    "7_hip_assert": {
+      "prompt_index": 7,
+      "condition": "hip_assert",
+      "final_answer": "Rubric: Evaluate long-form answers on two axes—Faithfulness (accuracy, citation fidelity, explicit uncertainty, traceability) and Helpfulness (completeness, clarity, actionable guidance, audience alignment). Score each axis 0–4 with descriptors: 0=no alignment, 1=poor, 2=partial, 3=good, 4=excellent; require source markers for any factual claim scoring ≥2 on faithfulness and penalize unsupported assertions. Include subchecks: internal consistency (logical coherence), source quality (primary vs tertiary), and transparency (stated assumptions and limitations); record examples and counterexamples to justify scores. Aggregate both axis scores and present final judgment with suggested edits to raise deficiencies (e.g., increase faithfulness by adding citations or increase helpfulness by adding examples or clearer structure).\n\nTradeoff and guarding against gaming: One common tradeoff is that increasing faithfulness by insisting on strict sourcing and hedging can reduce perceived helpfulness, making answers terse or inaccessible; conversely, prioritizing helpfulness can encourage plausible but unsupported claims. To guard against gaming, combine automated checks (citation matching, claim-source alignment, contradiction detection) with randomized human spot checks and adversarial prompts to reveal weaknesses, require provenance tags for high-impact claims, and track historical model behaviors to detect patterns of strategic omission. Penalize answers that show selective citation or repeated fallback to vague language, and maintain a feedback loop where evaluators update rubrics and test cases when new gaming strategies are discovered.",
+      "confidence": 0.86,
+      "usage": {
+        "input_tokens": 116,
+        "input_tokens_details": {
+          "cached_tokens": 0
+        },
+        "output_tokens": 448,
+        "output_tokens_details": {
+          "reasoning_tokens": 128
+        },
+        "total_tokens": 564
+      }
+    },
+    "8_neutral": {
+      "prompt_index": 8,
+      "condition": "neutral",
+      "final_answer": "I recommend prioritizing tighter latency for a support bot because speed directly impacts customer satisfaction and perceived service quality; users often value quick resolutions over lengthy explanations, especially for routine issues. Hypotheses: (1) Faster responses will increase overall customer satisfaction (CSAT) and reduce abandonment rate; (2) Shorter latency will decrease mean handling time (MHT) and increase throughput without significantly harming first-contact resolution for common queries; (3) Verbose rationales will be more valuable only for complex or escalated cases, not for the majority of interactions.\nTo validate this, run an A/B test where Group A receives low-latency concise replies and Group B receives slightly slower, verbose rationales. Success metrics: primary — CSAT, abandonment rate, and average response latency; secondary — first-contact resolution rate, escalation frequency, and time to resolution. Set targets (e.g., CSAT +5% or abandonment -10%) and monitor trade-offs: if concise replies degrade resolution or increase repeat contacts, introduce hybrid rules to provide detailed rationales only when complexity or user signals indicate need.",
+      "confidence": 0.87,
+      "usage": {
+        "input_tokens": 101,
+        "input_tokens_details": {
+          "cached_tokens": 0
+        },
+        "output_tokens": 302,
+        "output_tokens_details": {
+          "reasoning_tokens": 64
+        },
+        "total_tokens": 403
+      }
+    },
+    "8_hip_long": {
+      "prompt_index": 8,
+      "condition": "hip_long",
+      "final_answer": "Choose tighter latency for a support bot because speed directly affects user satisfaction and issue resolution flow; users contacting support usually prioritize getting a usable answer quickly over a deep, verbose rationale. Hypotheses: 1) Faster responses will increase first-response satisfaction scores and reduce session abandonment; 2) Shorter turnaround will lower average handle time and increase throughput without materially harming correctness; 3) Concise answers with optional expandable explanations will maintain trust while preserving speed. Success metrics: median response latency, first-response satisfaction (survey or CSAT), abandonment rate, and accuracy/error rate of resolutions.\nImplement latency-focused behavior while retaining optional verbose rationale on demand so you can measure trade-offs and adapt. Hypotheses: 1) Offering an on-demand deep rationale will capture a minority of users who need detail without slowing the majority; 2) Users who request detail will report higher satisfaction and reduced follow-ups; 3) Adaptive routing (fast concise by default, verbose if complexity detected) will optimize both satisfaction and efficiency. Success metrics: percentage of users requesting expanded rationale, follow-up contact rate, net promoter score (NPS) for escalated cases, and cost per resolved ticket.",
+      "confidence": 0.88,
+      "usage": {
+        "input_tokens": 122,
+        "input_tokens_details": {
+          "cached_tokens": 0
+        },
+        "output_tokens": 381,
+        "output_tokens_details": {
+          "reasoning_tokens": 128
+        },
+        "total_tokens": 503
+      }
+    },
+    "8_hip_short": {
+      "prompt_index": 8,
+      "condition": "hip_short",
+      "final_answer": "I recommend prioritizing tighter latency for the support bot because faster responses directly reduce customer wait time and abandonment in high-volume support contexts; concise replies can still include brief rationale when needed. Hypotheses: 1) Reducing median bot response time by X% will increase first-response CSAT and lower chat abandonment; 2) Concise answers with optional expandable rationale will maintain trust comparable to verbose initial explanations while reducing handling time; 3) Verbose initial rationale will increase resolution time and decrease throughput under load. These hypotheses can be validated by measuring response time, customer satisfaction, and operational metrics in controlled experiments.\nTo evaluate success, run an A/B test comparing low-latency concise responses (with optional “more info” expanders) versus verbose-rationale responses. Primary success metrics: change in CSAT (target +Δ points), percentage of chats abandoned (target -Δ%), and average handle time (target -Δ seconds); secondary metrics: resolution rate at first contact and escalation rate. Define success thresholds before the test (e.g., CSAT non-inferior within 1 point while handle time improves ≥10%), monitor sentiment and qualitative feedback, and iterate by routing sensitive queries to verbose-mode only when warranted by intent or user request.",
+      "confidence": 0.87,
+      "usage": {
+        "input_tokens": 108,
+        "input_tokens_details": {
+          "cached_tokens": 0
+        },
+        "output_tokens": 396,
+        "output_tokens_details": {
+          "reasoning_tokens": 128
+        },
+        "total_tokens": 504
+      }
+    },
+    "8_hip_assert": {
+      "prompt_index": 8,
+      "condition": "hip_assert",
+      "final_answer": "I recommend prioritizing tighter latency for the support bot because faster responses typically improve user satisfaction and reduce abandonment in high-volume support contexts. Quicker replies lower user frustration and enable more efficient issue resolution, especially for simple or time-sensitive queries; verbose rationales can be layered in via follow-ups when needed. Keeping initial responses concise also reduces cognitive load and operational costs, and allows human agents to intervene with detailed explanations only when necessary. This approach suits a scalable support model where speed drives perceived quality.\n\nHypotheses: (1) Reducing median response time by 50% will increase first-contact resolution rate and raise customer satisfaction (CSAT) scores; (2) Short, actionable responses will decrease ticket escalation to human agents by at least 20%; (3) Offering optional detailed rationales on request will maintain perceived transparency without harming latency. Success metrics: monitor median response latency, CSAT, Net Promoter Score (NPS), escalation rate, average handling time (AHT), and re-open rate; set targets such as 50% latency reduction, +10% CSAT, -20% escalations, and <5% increase in repeat contacts. Collect A/B test data comparing current verbose-rationale flows vs low-latency concise flows to validate hypotheses and iterate.",
+      "confidence": 0.9,
+      "usage": {
+        "input_tokens": 112,
+        "input_tokens_details": {
+          "cached_tokens": 0
+        },
+        "output_tokens": 403,
+        "output_tokens_details": {
+          "reasoning_tokens": 128
+        },
+        "total_tokens": 515
+      }
+    },
+    "9_neutral": {
+      "prompt_index": 9,
+      "condition": "neutral",
+      "final_answer": "I argue against using self-consistency sampling with gpt-5-mini for code explanations under a tight budget because self-consistency requires generating many independent samples per prompt, multiplying token costs and latency without guaranteeing proportional quality gains for explanatory tasks. For code explanations, a single well-crafted deterministic pass often suffices to convey structure, intent, and edge cases; paying for 5–20 samples to vote on answers is inefficient when the marginal improvement in clarity or correctness is small compared with the extra cost. Instead, prioritize prompt engineering, concise exemplars, and selective use of a higher-capacity model only for the most critical snippets to balance quality and cost.\nA key risk of avoiding extensive sampling is that a single deterministic output can occasionally be confidently incorrect or miss nuanced behaviors, producing overconfident-but-wrong explanations. Mitigate this by using low-temperature deterministic decoding (temperature≈0), explicit verification steps in the prompt (ask the model to run through examples or produce small test cases), and automated static checks or lightweight unit tests to catch errors; alternatively, apply limited self-consistency only on flagged or high-risk fragments rather than across all explanations to conserve budget while reducing error exposure.",
+      "confidence": 0.84,
+      "usage": {
+        "input_tokens": 110,
+        "input_tokens_details": {
+          "cached_tokens": 0
+        },
+        "output_tokens": 508,
+        "output_tokens_details": {
+          "reasoning_tokens": 256
+        },
+        "total_tokens": 618
+      }
+    },
+    "9_hip_long": {
+      "prompt_index": 9,
+      "condition": "hip_long",
+      "final_answer": "I argue against using self-consistency sampling with gpt-5-mini for code explanations when operating under a tight budget. Self-consistency requires multiple independent model samples per prompt to aggregate answers, which multiplies token and compute costs and often increases latency, undermining the budget constraints most strictly. For code explanations, the marginal gain in correctness or clarity from multiple samples is often small compared with improving prompt design, adding targeted unit tests, or using a single high-quality deterministic pass with post-processing. Thus, a single well-crafted query plus deterministic decoding typically gives the best cost-to-benefit ratio in resource-constrained settings.\nA key risk of foregoing self-consistency is that a single-sample explanation may miss edge cases or produce subtle inaccuracies that go unnoticed. A practical mitigation is to combine one deterministic explanation from gpt-5-mini with lightweight automated checks: run static analyzers, simple unit tests, or a small rule-based verifier on the explained code to catch common errors. This approach preserves budget while reducing the chance of deploying incorrect guidance, and it lets you reserve multi-sample self-consistency selectively for only the highest-risk snippets if budget allows.",
+      "confidence": 0.86,
+      "usage": {
+        "input_tokens": 131,
+        "input_tokens_details": {
+          "cached_tokens": 0
+        },
+        "output_tokens": 374,
+        "output_tokens_details": {
+          "reasoning_tokens": 128
+        },
+        "total_tokens": 505
+      }
+    },
+    "9_hip_short": {
+      "prompt_index": 9,
+      "condition": "hip_short",
+      "final_answer": "I argue against using self-consistency sampling with gpt-5-mini for code explanations when operating under a tight budget. Self-consistency requires generating multiple independent samples per prompt and aggregating them, which multiplies token usage and API calls; even if each run is cheaper, the cumulative cost can quickly exceed strict limits. While self-consistency can improve correctness by voting among outputs, the marginal gains for explanatory tasks often diminish after a few samples, making it an inefficient strategy when funds are constrained. Instead, prioritizing a single higher-quality prompt, targeted model settings, and selective human review yields better cost-effectiveness for most explanation needs.\n\nA primary risk of avoiding self-consistency is increased chance of missing subtle errors or plausible-sounding but incorrect explanations in a single-output approach. Mitigation: use a compact hybrid workflow where you run one high-quality generation and then run lightweight automated checks or a single focused re-run only on flagged sections, reducing extra sampling to targeted cases rather than blanket repetition. This preserves most of the budget while addressing the main accuracy risk, balancing cost constraints with quality assurance.",
+      "confidence": 0.78,
+      "usage": {
+        "input_tokens": 117,
+        "input_tokens_details": {
+          "cached_tokens": 0
+        },
+        "output_tokens": 364,
+        "output_tokens_details": {
+          "reasoning_tokens": 128
+        },
+        "total_tokens": 481
+      }
+    },
+    "9_hip_assert": {
+      "prompt_index": 9,
+      "condition": "hip_assert",
+      "final_answer": "I argue against using self-consistency sampling with gpt-5-mini for code explanations when operating under a tight budget. Self-consistency requires generating many independent samples per prompt to vote on the best answer, which multiplies token usage and cost; for routine explanatory tasks the marginal improvement in answer quality is often small compared with the price increase. A budget-conscious workflow benefits more from careful prompt engineering, targeted few-shot examples, and deterministic decoding (lower temperature) to get consistent, clear explanations at predictable cost. Additionally, for most code explanations the primary gains come from clearer prompts and verification tests rather than repeated stochastic sampling.",
+      "confidence": 0.62,
+      "usage": {
+        "input_tokens": 121,
+        "input_tokens_details": {
+          "cached_tokens": 0
+        },
+        "output_tokens": 331,
+        "output_tokens_details": {
+          "reasoning_tokens": 192
+        },
+        "total_tokens": 452
+      }
+    },
+    "10_neutral": {
+      "prompt_index": 10,
+      "condition": "neutral",
+      "final_answer": "A plausible causal story is that the stricter content filter increases false positives and blocks legitimate user content or raises friction in content creation, which reduces perceived utility and satisfaction. Frustrated or blocked users engage less and find alternative platforms or workflows, causing short-term churn and longer-term erosion of network effects and community value. This effect is likely heterogeneous: power users, creators, or users in certain languages or topics may be disproportionately affected, amplifying overall churn beyond the directly blocked population. Over time, repeated negative experiences also reduce trust and the likelihood of returning, producing persistent retention declines.\nTo test this, run a randomized controlled rollout (or staggered rollout for operational reasons) assigning users to strict-filter vs control, stratified by key covariates (activity level, role, language) and pre-period engagement to ensure balance. Measure primary outcomes (retention, session frequency, DAU/MAU) and intermediate mechanisms (blocked content rate, time-to-post, help requests, qualitative feedback), and perform mediation analysis to quantify how much churn is explained by increased blocking vs perceived friction. Use difference-in-differences and survival analysis with pre-trend checks and placebo windows to validate causal inference, and execute heterogeneity analysis (by user segment, content types) and robustness checks (alternative thresholds, instrumenting exposure by rollout timing) to confirm mechanisms and rule out confounders.",
+      "confidence": 0.82,
+      "usage": {
+        "input_tokens": 103,
+        "input_tokens_details": {
+          "cached_tokens": 0
+        },
+        "output_tokens": 485,
+        "output_tokens_details": {
+          "reasoning_tokens": 192
+        },
+        "total_tokens": 588
+      }
+    },
+    "10_hip_long": {
+      "prompt_index": 10,
+      "condition": "hip_long",
+      "final_answer": "A plausible causal story is that the stricter content filter increases false positives and overblocking, which reduces the availability of content users value and interferes with normal workflows. As users encounter blocked posts or rejected uploads, perceived usefulness and trust decline, leading to frustration and higher churn; creators facing moderation friction may also publish less, weakening network effects and accelerating user loss. Additionally, ambiguous or opaque moderation decisions can raise support burden and lower satisfaction, compounding the retention decline.\nTo test this, run a randomized controlled experiment exposing a representative sample of users to the stricter filter while keeping a control group on the prior filter, and measure short- and medium-term churn, engagement, content volume, and retention curves. Instrument for mediators: false positive/blocking rate, time-to-resolution for appeals, support contacts, and user satisfaction surveys; perform mediation analysis to quantify how much of the churn effect is explained by overblocking versus other pathways. Complement the RCT with survival analysis, subgroup analysis (new vs power users, creators vs consumers), and qualitative review of blocked items to validate the mechanism and inform mitigation strategies (tuning thresholds, better appeals, transparency).",
+      "confidence": 0.86,
+      "usage": {
+        "input_tokens": 124,
+        "input_tokens_details": {
+          "cached_tokens": 0
+        },
+        "output_tokens": 376,
+        "output_tokens_details": {
+          "reasoning_tokens": 128
+        },
+        "total_tokens": 500
+      }
+    },
+    "10_hip_short": {
+      "prompt_index": 10,
+      "condition": "hip_short",
+      "final_answer": "A plausible causal story is that the stricter content filter removed or demoted content that a segment of users find engaging or identity-affirming, reducing perceived value and social utility of the product. Users who produced or consumed borderline content may feel censored or see their feeds as less relevant, leading to lower engagement and eventual churn; concurrently, discoverability of alternative communities outside the platform may increase. The policy change could also have signaled broader product shifts, eroding trust among power users who interpret moderation as a divergence from the platform's original norms.\nTo test this, run a mixed experimental and observational strategy: A randomized controlled trial (A/B test) where a representative subset sees the stricter filter and others retain the previous filter, measuring short- and medium-term churn, engagement, content creation, and sentiment metrics; instrument heterogenous treatment effects by past behavior (e.g., prior content flagged, posting vs. consuming). Complement with difference-in-differences on rollout cohorts and event-study graphs to check timing, and use mediation analysis to quantify how much churn is explained by reduced content relevance vs. perceived censorship; conduct surveys and qualitative interviews with high-risk users to validate mechanisms. Robustness checks should include alternative churn definitions, excluding bots, and placebo tests on unrelated features.",
+      "confidence": 0.85,
+      "usage": {
+        "input_tokens": 110,
+        "input_tokens_details": {
+          "cached_tokens": 0
+        },
+        "output_tokens": 336,
+        "output_tokens_details": {
+          "reasoning_tokens": 64
+        },
+        "total_tokens": 446
+      }
+    },
+    "10_hip_assert": {
+      "prompt_index": 10,
+      "condition": "hip_assert",
+      "final_answer": "Causal story: When the platform introduced a stricter content filter, it increased false positives and filtered out borderline or niche content that many users value. This change raised friction in content creation and consumption: users saw their posts removed or shadowed, experienced lower engagement because personalized feeds were noisier, and perceived the environment as less welcoming or less aligned with their interests. The result was a rise in dissatisfaction and a faster decision to reduce usage or leave, particularly among power users and creators whose value depends on nuanced content. Network effects amplified churn as reduced activity made the platform feel less lively, prompting still more departures.",
+      "confidence": 0.86,
+      "usage": {
+        "input_tokens": 114,
+        "input_tokens_details": {
+          "cached_tokens": 0
+        },
+        "output_tokens": 202,
+        "output_tokens_details": {
+          "reasoning_tokens": 64
+        },
+        "total_tokens": 316
+      }
+    }
+  },
+  "decisions": {
+    "1_neutral_hip_long": {
+      "prompt_index": 1,
+      "pair": [
+        "neutral",
+        "hip_long"
+      ],
+      "winner": "B",
+      "reason": "Both answers are correct and coherent, but B gives a slightly stronger, more specific policy recommendation (hybrid staged access with conditional wider release), explicitly emphasizes independent auditing and equity concerns, and states clear, well-framed tradeoffs. A is good and concise but B provides more depth and specificity on implementation and governance tradeoffs.",
+      "order": [
+        "hip_long",
+        "neutral"
+      ],
+      "usage": {
+        "input_tokens": 551,
+        "input_tokens_details": {
+          "cached_tokens": 0
+        },
+        "output_tokens": 207,
+        "output_tokens_details": {
+          "reasoning_tokens": 128
+        },
+        "total_tokens": 758
+      }
+    },
+    "1_neutral_hip_short": {
+      "prompt_index": 1,
+      "pair": [
+        "neutral",
+        "hip_short"
+      ],
+      "winner": "A",
+      "reason": "Answer A and B are very similar, but A is marginally stronger: it states the core arguments clearly and adds more specific mitigation measures (independent audits, monitored sandboxes, responsible-use licensing, time‑bound release criteria) and explicitly ties staged access to tiered, vetted access—giving clearer, actionable policy guidance rather than largely generic restatement.",
+      "order": [
+        "hip_short",
+        "neutral"
+      ],
+      "usage": {
+        "input_tokens": 586,
+        "input_tokens_details": {
+          "cached_tokens": 0
+        },
+        "output_tokens": 213,
+        "output_tokens_details": {
+          "reasoning_tokens": 128
+        },
+        "total_tokens": 799
+      }
+    },
+    "1_neutral_hip_assert": {
+      "prompt_index": 1,
+      "pair": [
+        "neutral",
+        "hip_assert"
+      ],
+      "winner": "A",
+      "reason": "Answer A is marginally stronger: it clearly contrasts the core merits (transparency/innovation vs risk mitigation), proposes a concrete hybrid (tiered staged access with independent auditing and conditional open release after safety benchmarks), and names specific tradeoffs (innovation speed vs safety control; transparency/equity vs centralized control). Answer B is coherent and similar but more generic and less specific about post-evaluation release conditions and independent oversight.",
+      "order": [
+        "neutral",
+        "hip_assert"
+      ],
+      "usage": {
+        "input_tokens": 561,
+        "input_tokens_details": {
+          "cached_tokens": 0
+        },
+        "output_tokens": 226,
+        "output_tokens_details": {
+          "reasoning_tokens": 128
+        },
+        "total_tokens": 787
+      }
+    },
+    "2_neutral_hip_long": {
+      "prompt_index": 2,
+      "pair": [
+        "neutral",
+        "hip_long"
+      ],
+      "winner": "B",
+      "reason": "Both answers identify good confounds and concrete fixes, but B is slightly stronger: it covers prompt-length confounds similarly to A and adds a frequently overlooked, concrete confound—scoring/decoding biases—with practical fixes (blinded raters, canonicalized extraction, fixed hyperparameters, final-answer-only evaluations). B’s mitigations are specific, actionable, and directly address evaluation artifacts that could inflate reported gains.",
+      "order": [
+        "hip_long",
+        "neutral"
+      ],
+      "usage": {
+        "input_tokens": 672,
+        "input_tokens_details": {
+          "cached_tokens": 0
+        },
+        "output_tokens": 289,
+        "output_tokens_details": {
+          "reasoning_tokens": 192
+        },
+        "total_tokens": 961
+      }
+    },
+    "2_neutral_hip_short": {
+      "prompt_index": 2,
+      "pair": [
+        "neutral",
+        "hip_short"
+      ],
+      "winner": "B",
+      "reason": "Both answers identify strong, relevant confounds and concrete fixes. B edges out A by covering decoding/seed effects (temperature, beam size) in addition to scoring and prompt-length controls, and gives clear, testable fixes (canonicalized extraction, fixed decoding hyperparameters, multiple seeds, and masked grading). A is close and strong on sampling bias and statistical testing, but B’s inclusion of decoding-variance and more varied experimental controls makes it slightly more thorough.",
+      "order": [
+        "hip_short",
+        "neutral"
+      ],
+      "usage": {
+        "input_tokens": 681,
+        "input_tokens_details": {
+          "cached_tokens": 0
+        },
+        "output_tokens": 298,
+        "output_tokens_details": {
+          "reasoning_tokens": 192
+        },
+        "total_tokens": 979
+      }
+    },
+    "2_neutral_hip_assert": {
+      "prompt_index": 2,
+      "pair": [
+        "neutral",
+        "hip_assert"
+      ],
+      "winner": "B",
+      "reason": "Both answers identify strong confounds and realistic fixes, but B is slightly better: it gives more concrete control designs (shuffled/scrambled-token controls, incremental ablations), clear evaluation fixes (blinded raters, canonicalized answer extraction, hiding the CoT and forcing only final-answer evaluation), and practical randomization/pre-registration steps that directly test whether the rationale or grading artifacts drive the effect. A is solid on decoding controls and statistical testing but is marginally less specific about evaluation mechanics.",
+      "order": [
+        "hip_assert",
+        "neutral"
+      ],
+      "usage": {
+        "input_tokens": 682,
+        "input_tokens_details": {
+          "cached_tokens": 0
+        },
+        "output_tokens": 305,
+        "output_tokens_details": {
+          "reasoning_tokens": 192
+        },
+        "total_tokens": 987
+      }
+    },
+    "3_neutral_hip_long": {
+      "prompt_index": 3,
+      "pair": [
+        "neutral",
+        "hip_long"
+      ],
+      "winner": "A",
+      "reason": "A is more complete and specific: it defines independent/control variables, concrete depth settings including baseline, detailed metrics (hallucination rate, fact-level F1, faithfulness, calibration), annotation procedure, and a clear statistical stopping rule (minimum detectable effect, bootstrap CIs, criteria for stopping depth expansion and latency threshold). B is correct but sparse—missing explicit metrics, annotation/stopping rules, and statistical decision criteria.",
+      "order": [
+        "hip_long",
+        "neutral"
+      ],
+      "usage": {
+        "input_tokens": 691,
+        "input_tokens_details": {
+          "cached_tokens": 0
+        },
+        "output_tokens": 162,
+        "output_tokens_details": {
+          "reasoning_tokens": 64
+        },
+        "total_tokens": 853
+      }
+    },
+    "3_neutral_hip_short": {
+      "prompt_index": 3,
+      "pair": [
+        "neutral",
+        "hip_short"
+      ],
+      "winner": "A",
+      "reason": "Answer A is more complete and specific: it enumerates retrieval depths, sampling strategy, metadata to record, concrete metrics (hallucination rate, precision@k, hallucinated-span count, confidence calibration), and a clear statistical stopping rule (absolute change threshold, p-value criterion, Cohen’s d, power/sample requirements). Answer B is coherent but omits explicit metrics definitions and a stopping rule, and is therefore less applicable as an ablation protocol.",
+      "order": [
+        "hip_short",
+        "neutral"
+      ],
+      "usage": {
+        "input_tokens": 578,
+        "input_tokens_details": {
+          "cached_tokens": 0
+        },
+        "output_tokens": 168,
+        "output_tokens_details": {
+          "reasoning_tokens": 64
+        },
+        "total_tokens": 746
+      }
+    },
+    "3_neutral_hip_assert": {
+      "prompt_index": 3,
+      "pair": [
+        "neutral",
+        "hip_assert"
+      ],
+      "winner": "B",
+      "reason": "Answer B is more complete and specific: it lists concrete k values, defines diverse benchmark setup, proposes detailed hallucination metrics (entailment-based automatic checks, factual precision, hallucinated entities), includes statistical testing and confidence intervals, and provides a clear, practical stopping rule (marginal Δ <1pp with p>0.05 for two consecutive increases plus hard cap and verification). Answer A is correct but briefer and lacks a concrete stopping criterion and some useful metrics and verification steps.",
+      "order": [
+        "neutral",
+        "hip_assert"
+      ],
+      "usage": {
+        "input_tokens": 572,
+        "input_tokens_details": {
+          "cached_tokens": 0
+        },
+        "output_tokens": 177,
+        "output_tokens_details": {
+          "reasoning_tokens": 64
+        },
+        "total_tokens": 749
+      }
+    },
+    "4_neutral_hip_long": {
+      "prompt_index": 4,
+      "pair": [
+        "neutral",
+        "hip_long"
+      ],
+      "winner": "B",
+      "reason": "Both answers cover similar risks and guardrails, but B is slightly stronger in specificity and operational detail: it calls for pre/during/post privacy and civil‑liberties impact assessments, regular algorithmic testing on local demographics, explicit deletion of non‑matches, contractual vendor limits, and an independent oversight body with suspension authority. A is good (adds a sunset tied to measurable metrics) but is marginally less specific on testing and enforcement mechanisms.",
+      "order": [
+        "hip_long",
+        "neutral"
+      ],
+      "usage": {
+        "input_tokens": 663,
+        "input_tokens_details": {
+          "cached_tokens": 0
+        },
+        "output_tokens": 231,
+        "output_tokens_details": {
+          "reasoning_tokens": 128
+        },
+        "total_tokens": 894
+      }
+    },
+    "4_neutral_hip_short": {
+      "prompt_index": 4,
+      "pair": [
+        "neutral",
+        "hip_short"
+      ],
+      "winner": "B",
+      "reason": "Both answers are strong, but B is slightly better: it adds concrete safeguards like human‑in‑the‑loop confirmation, testing on local demographics, enforceable suspension authority, audit logs and clear alternate‑access/opt‑out mechanisms. Its guardrails are more operationally specific and enforceable, whereas A is solid but more general.",
+      "order": [
+        "hip_short",
+        "neutral"
+      ],
+      "usage": {
+        "input_tokens": 639,
+        "input_tokens_details": {
+          "cached_tokens": 0
+        },
+        "output_tokens": 210,
+        "output_tokens_details": {
+          "reasoning_tokens": 128
+        },
+        "total_tokens": 849
+      }
+    },
+    "4_neutral_hip_assert": {
+      "prompt_index": 4,
+      "pair": [
+        "neutral",
+        "hip_assert"
+      ],
+      "winner": "B",
+      "reason": "Both answers are solid, but B is slightly stronger: it adds pre/during/post privacy and civil‑liberties impact assessments, explicit opt‑out/alternate access, audit logs for individuals, contractual vendor limits, and an independent oversight body with authority to suspend the pilot — concrete, enforceable guardrails that better balance utility and harm mitigation.",
+      "order": [
+        "hip_assert",
+        "neutral"
+      ],
+      "usage": {
+        "input_tokens": 654,
+        "input_tokens_details": {
+          "cached_tokens": 0
+        },
+        "output_tokens": 212,
+        "output_tokens_details": {
+          "reasoning_tokens": 128
+        },
+        "total_tokens": 866
+      }
+    },
+    "5_neutral_hip_long": {
+      "prompt_index": 5,
+      "pair": [
+        "neutral",
+        "hip_long"
+      ],
+      "winner": "A",
+      "reason": "Answer A is more specific and thorough: it identifies concrete root causes (mislabeled data, inadequate validation coverage, incentive misalignment), explains monitoring and rollout failures, and lists detailed corrective actions (adversarial safety tests, dataset audits, mandatory sign-offs, staged canaries, rollback automation) plus a 90-day measurable plan. B is reasonable but slightly more generic and omits some dataset and validation specifics that A covers.",
+      "order": [
+        "hip_long",
+        "neutral"
+      ],
+      "usage": {
+        "input_tokens": 621,
+        "input_tokens_details": {
+          "cached_tokens": 0
+        },
+        "output_tokens": 228,
+        "output_tokens_details": {
+          "reasoning_tokens": 128
+        },
+        "total_tokens": 849
+      }
+    },
+    "5_neutral_hip_short": {
+      "prompt_index": 5,
+      "pair": [
+        "neutral",
+        "hip_short"
+      ],
+      "winner": "A",
+      "reason": "Answer A is slightly stronger: it clearly lists technical and process root causes (adversarial data, lack of CI safety regression tests, missing runtime caps), gives immediate/medium/long-term corrective actions, assigns ownership, and provides specific success metrics. B is coherent and solid but more generic on metrics and timelines.",
+      "order": [
+        "hip_short",
+        "neutral"
+      ],
+      "usage": {
+        "input_tokens": 631,
+        "input_tokens_details": {
+          "cached_tokens": 0
+        },
+        "output_tokens": 269,
+        "output_tokens_details": {
+          "reasoning_tokens": 192
+        },
+        "total_tokens": 900
+      }
+    },
+    "5_neutral_hip_assert": {
+      "prompt_index": 5,
+      "pair": [
+        "neutral",
+        "hip_assert"
+      ],
+      "winner": "A",
+      "reason": "Answer A is more specific and thorough: it identifies concrete root causes (dataset vetting gaps, narrow validation metrics, rushed rollout, missing monitoring, versioning/rollback weaknesses) and proposes detailed corrective actions (data audit, adversarial safety tests, automated cost controls, versioning/rollback playbooks, staged canary deployments, ownership and recurring reviews). B is competent but slightly more generic and overlaps with A; A provides deeper diagnostic detail and concrete safeguards.",
+      "order": [
+        "hip_assert",
+        "neutral"
+      ],
+      "usage": {
+        "input_tokens": 611,
+        "input_tokens_details": {
+          "cached_tokens": 0
+        },
+        "output_tokens": 297,
+        "output_tokens_details": {
+          "reasoning_tokens": 192
+        },
+        "total_tokens": 908
+      }
+    },
+    "6_neutral_hip_long": {
+      "prompt_index": 6,
+      "pair": [
+        "neutral",
+        "hip_long"
+      ],
+      "winner": "A",
+      "reason": "A is slightly stronger: it gives concrete attack examples (command chaining, quoted/forwarded directives), specific mitigations (deterministic templates, syscall filters, dry-run) and clearer justification for the top two controls. B is correct and coherent but a bit more generic. A’s greater specificity and practical mitigation details make it the better answer.",
+      "order": [
+        "hip_long",
+        "neutral"
+      ],
+      "usage": {
+        "input_tokens": 814,
+        "input_tokens_details": {
+          "cached_tokens": 0
+        },
+        "output_tokens": 211,
+        "output_tokens_details": {
+          "reasoning_tokens": 128
+        },
+        "total_tokens": 1025
+      }
+    },
+    "6_neutral_hip_short": {
+      "prompt_index": 6,
+      "pair": [
+        "neutral",
+        "hip_short"
+      ],
+      "winner": "B",
+      "reason": "Both answers are strong and similar in core recommendations, but B is slightly better: it gives clear specific risks (quoted text, signatures, command substitution), proposes a structured command schema with typed validation, and details containment controls (syscall restrictions, network egress controls, rate limits). B’s mitigation ordering and advice to implement independent layers is practical and actionable, whereas A is useful but a bit more generic.",
+      "order": [
+        "neutral",
+        "hip_short"
+      ],
+      "usage": {
+        "input_tokens": 790,
+        "input_tokens_details": {
+          "cached_tokens": 0
+        },
+        "output_tokens": 287,
+        "output_tokens_details": {
+          "reasoning_tokens": 192
+        },
+        "total_tokens": 1077
+      }
+    },
+    "6_neutral_hip_assert": {
+      "prompt_index": 6,
+      "pair": [
+        "neutral",
+        "hip_assert"
+      ],
+      "winner": "B",
+      "reason": "Both answers correctly identify high risk and sensible mitigations, but B is clearer and more structured: it ranks defenses by depth, explicitly separates pre-generation prevention (allowlisted templates and parameter validation) from containment (least-privilege sandboxing), and adds useful operational controls (provenance/reputation checks, normalized input, prompt hardening). A is strong but less comprehensive in ranked mitigations and sequencing.",
+      "order": [
+        "hip_assert",
+        "neutral"
+      ],
+      "usage": {
+        "input_tokens": 821,
+        "input_tokens_details": {
+          "cached_tokens": 0
+        },
+        "output_tokens": 223,
+        "output_tokens_details": {
+          "reasoning_tokens": 128
+        },
+        "total_tokens": 1044
+      }
+    },
+    "7_neutral_hip_long": {
+      "prompt_index": 7,
+      "pair": [
+        "neutral",
+        "hip_long"
+      ],
+      "winner": "B",
+      "reason": "B is more thorough and actionable: it defines concrete subcriteria, scoring method, recording of evidence, examples of failure modes, and concrete anti-gaming controls (provenance requirements, calibrated uncertainty, automated detectors plus human spot-checks, adversarial evaluators, interrater reliability). A is coherent and concise but less specific on reproducibility and detection mechanisms.",
+      "order": [
+        "neutral",
+        "hip_long"
+      ],
+      "usage": {
+        "input_tokens": 672,
+        "input_tokens_details": {
+          "cached_tokens": 0
+        },
+        "output_tokens": 215,
+        "output_tokens_details": {
+          "reasoning_tokens": 128
+        },
+        "total_tokens": 887
+      }
+    },
+    "7_neutral_hip_short": {
+      "prompt_index": 7,
+      "pair": [
+        "neutral",
+        "hip_short"
+      ],
+      "winner": "B",
+      "reason": "Answer B is more specific and operational: it defines additional useful axes (transparency, relevance), gives default weights and a 0–100 conversion, provides rubric anchors and application procedures (dual raters, reconciliations), and concrete anti-gaming measures (automated detection, human audits, calibration, rationale notes). Answer A is correct and coherent but more high-level and less prescriptive, with fewer concrete implementation details for scoring, thresholds, and auditability.",
+      "order": [
+        "neutral",
+        "hip_short"
+      ],
+      "usage": {
+        "input_tokens": 728,
+        "input_tokens_details": {
+          "cached_tokens": 0
+        },
+        "output_tokens": 171,
+        "output_tokens_details": {
+          "reasoning_tokens": 64
+        },
+        "total_tokens": 899
+      }
+    },
+    "7_neutral_hip_assert": {
+      "prompt_index": 7,
+      "pair": [
+        "neutral",
+        "hip_assert"
+      ],
+      "winner": "A",
+      "reason": "Answer A is more specific and operational: it gives concrete scoring thresholds, subchecks (internal consistency, source quality, transparency), requires source markers for claims above a threshold, suggests examples/counterexamples for calibration, and outlines multiple concrete anti‑gaming measures (automated citation matching, contradiction detection, provenance tags, historical behavior tracking, randomized human spot checks). B is good but more generic (0–5 scale and high-level audits); A better balances depth, specificity and actionable defenses against gaming.",
+      "order": [
+        "hip_assert",
+        "neutral"
+      ],
+      "usage": {
+        "input_tokens": 689,
+        "input_tokens_details": {
+          "cached_tokens": 0
+        },
+        "output_tokens": 305,
+        "output_tokens_details": {
+          "reasoning_tokens": 192
+        },
+        "total_tokens": 994
+      }
+    },
+    "8_neutral_hip_long": {
+      "prompt_index": 8,
+      "pair": [
+        "neutral",
+        "hip_long"
+      ],
+      "winner": "A",
+      "reason": "Answer A is slightly stronger: it gives clear, actionable hypotheses and a wider set of specific success metrics (median latency, CSAT, abandonment, accuracy, percent requesting expanded rationale, cost per resolved ticket) and proposes adaptive behavior (concise by default with on‑demand verbose rationale) to balance tradeoffs. B is coherent and proposes an A/B test with targets, but A offers more operational detail and metrics to measure impact.",
+      "order": [
+        "hip_long",
+        "neutral"
+      ],
+      "usage": {
+        "input_tokens": 588,
+        "input_tokens_details": {
+          "cached_tokens": 0
+        },
+        "output_tokens": 229,
+        "output_tokens_details": {
+          "reasoning_tokens": 128
+        },
+        "total_tokens": 817
+      }
+    },
+    "8_neutral_hip_short": {
+      "prompt_index": 8,
+      "pair": [
+        "neutral",
+        "hip_short"
+      ],
+      "winner": "B",
+      "reason": "Answer B is clearer and more actionable: it proposes a specific experiment design (low-latency with optional expanders vs verbose), defines primary/secondary metrics, suggests non-inferiority thresholds and concrete success criteria, and includes routing rules for sensitive queries. It avoids generic phrasing and gives operationally testable hypotheses, making it more useful than A's higher-level recommendations.",
+      "order": [
+        "neutral",
+        "hip_short"
+      ],
+      "usage": {
+        "input_tokens": 603,
+        "input_tokens_details": {
+          "cached_tokens": 0
+        },
+        "output_tokens": 217,
+        "output_tokens_details": {
+          "reasoning_tokens": 128
+        },
+        "total_tokens": 820
+      }
+    },
+    "8_neutral_hip_assert": {
+      "prompt_index": 8,
+      "pair": [
+        "neutral",
+        "hip_assert"
+      ],
+      "winner": "B",
+      "reason": "Answer B is more actionable and specific: it lists clear hypotheses, a broader set of success metrics (including NPS and re-open rate), concrete numeric targets, and an operational plan (optional detailed rationales/follow-ups). Answer A is coherent and sensible but more conservative and slightly less specific in metrics and targets.",
+      "order": [
+        "neutral",
+        "hip_assert"
+      ],
+      "usage": {
+        "input_tokens": 609,
+        "input_tokens_details": {
+          "cached_tokens": 0
+        },
+        "output_tokens": 205,
+        "output_tokens_details": {
+          "reasoning_tokens": 128
+        },
+        "total_tokens": 814
+      }
+    },
+    "9_neutral_hip_long": {
+      "prompt_index": 9,
+      "pair": [
+        "neutral",
+        "hip_long"
+      ],
+      "winner": "A",
+      "reason": "Both answers are coherent and correct, but A gives slightly more specific guidance (quantifying sample counts, suggesting selective use of higher-capacity models, and explicit verification steps including temperature≈0) and a clearer mitigation pathway (automated static checks plus limited sampling on flagged fragments), so it is more actionable and detailed while remaining concise.",
+      "order": [
+        "neutral",
+        "hip_long"
+      ],
+      "usage": {
+        "input_tokens": 604,
+        "input_tokens_details": {
+          "cached_tokens": 0
+        },
+        "output_tokens": 208,
+        "output_tokens_details": {
+          "reasoning_tokens": 128
+        },
+        "total_tokens": 812
+      }
+    },
+    "9_neutral_hip_short": {
+      "prompt_index": 9,
+      "pair": [
+        "neutral",
+        "hip_short"
+      ],
+      "winner": "B",
+      "reason": "Both answers coherently argue against self-consistency under tight budget, but B is more specific and actionable: it quantifies typical sample counts, recommends concrete mitigations (temperature≈0, explicit verification, example-based checks, unit tests, limited targeted sampling or higher-capacity model for critical snippets), making it more useful and precise than A’s higher-level mitigation.",
+      "order": [
+        "hip_short",
+        "neutral"
+      ],
+      "usage": {
+        "input_tokens": 593,
+        "input_tokens_details": {
+          "cached_tokens": 0
+        },
+        "output_tokens": 150,
+        "output_tokens_details": {
+          "reasoning_tokens": 64
+        },
+        "total_tokens": 743
+      }
+    },
+    "9_neutral_hip_assert": {
+      "prompt_index": 9,
+      "pair": [
+        "neutral",
+        "hip_assert"
+      ],
+      "winner": "B",
+      "reason": "Both answers correctly argue against self-consistency under tight budgets, but B is superior: it gives more specific reasoning (cost vs marginal gains, suggested sample counts), explicitly states a concrete risk (overconfident-but-wrong deterministic output) and multiple practical mitigations (temperature≈0, explicit verification prompts, small tests, selective/limited sampling). A is coherent but lacks an explicit stated risk and is less specific about mitigations.",
+      "order": [
+        "hip_assert",
+        "neutral"
+      ],
+      "usage": {
+        "input_tokens": 498,
+        "input_tokens_details": {
+          "cached_tokens": 0
+        },
+        "output_tokens": 164,
+        "output_tokens_details": {
+          "reasoning_tokens": 64
+        },
+        "total_tokens": 662
+      }
+    },
+    "10_neutral_hip_long": {
+      "prompt_index": 10,
+      "pair": [
+        "neutral",
+        "hip_long"
+      ],
+      "winner": "A",
+      "reason": "Answer A gives a clear causal mechanism with heterogeneity, and details a robust testing approach (randomized/staggered rollout, stratification, mediation analysis, difference‑in‑differences, survival analysis, pre‑trend/placebo checks and instrumenting exposure) that better addresses causal identification and robustness than B, which is similar but less specific on inference checks.",
+      "order": [
+        "neutral",
+        "hip_long"
+      ],
+      "usage": {
+        "input_tokens": 639,
+        "input_tokens_details": {
+          "cached_tokens": 0
+        },
+        "output_tokens": 214,
+        "output_tokens_details": {
+          "reasoning_tokens": 128
+        },
+        "total_tokens": 853
+      }
+    },
+    "10_neutral_hip_short": {
+      "prompt_index": 10,
+      "pair": [
+        "neutral",
+        "hip_short"
+      ],
+      "winner": "B",
+      "reason": "Both answers present plausible causal stories and appropriate tests, but B is slightly stronger: it clearly identifies false positives/friction as mechanisms, lists concrete intermediate metrics (blocked content rate, time-to-post, help requests), specifies stratified RCT/staggered rollout, survival analysis, DiD with pre-trend/placebo checks, heterogeneity and robustness strategies (thresholds, instrumenting exposure). A is good on signaling and demotion but is a bit more high-level.",
+      "order": [
+        "hip_short",
+        "neutral"
+      ],
+      "usage": {
+        "input_tokens": 664,
+        "input_tokens_details": {
+          "cached_tokens": 0
+        },
+        "output_tokens": 172,
+        "output_tokens_details": {
+          "reasoning_tokens": 64
+        },
+        "total_tokens": 836
+      }
+    },
+    "10_neutral_hip_assert": {
+      "prompt_index": 10,
+      "pair": [
+        "neutral",
+        "hip_assert"
+      ],
+      "winner": "B",
+      "reason": "B provides the stronger response: it gives a clear causal mechanism plus a concrete, testable evaluation plan (randomized/staggered rollout, stratification, specific outcomes and intermediate measures), and outlines causal-inference methods (mediation, DiD, survival analysis), heterogeneity and robustness checks. A gives a plausible story but is higher-level and lacks concrete experimental and analytic steps.",
+      "order": [
+        "hip_assert",
+        "neutral"
+      ],
+      "usage": {
+        "input_tokens": 531,
+        "input_tokens_details": {
+          "cached_tokens": 0
+        },
+        "output_tokens": 154,
+        "output_tokens_details": {
+          "reasoning_tokens": 64
+        },
+        "total_tokens": 685
+      }
+    }
+  }
+}
